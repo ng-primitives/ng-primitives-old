@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ColorDirective, ColorVariant, SizeDirective, SizeVariant } from '@ng-primitives/common';
 
 @Component({
   selector: '[ngp-button]',
@@ -7,5 +8,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  hostDirectives: [
+    { directive: ColorDirective, inputs: ['ngpColor: color'] },
+    { directive: SizeDirective, inputs: ['ngpSize: size'] },
+  ],
 })
-export class ButtonComponent {}
+export class ButtonComponent {
+  /** Define the color variant */
+  @Input() color?: ColorVariant;
+
+  /** Define the size variant */
+  @Input() size?: SizeVariant;
+}

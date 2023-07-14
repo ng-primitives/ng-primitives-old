@@ -3,6 +3,7 @@ import {
   ElementRef,
   Input,
   OnChanges,
+  OnInit,
   Renderer2,
   SimpleChanges,
   inject,
@@ -12,7 +13,7 @@ import {
   selector: '[ngpSize]',
   standalone: true,
 })
-export class SizeDirective implements OnChanges {
+export class SizeDirective implements OnInit, OnChanges {
   /** Access the element ref */
   readonly #element = inject(ElementRef<HTMLElement>);
 
@@ -25,12 +26,18 @@ export class SizeDirective implements OnChanges {
   /** Store the last applied size */
   #size?: SizeVariant;
 
+  ngOnInit(): void {
+    this.applySize(this.size);
+  }
+
   ngOnChanges({ size }: SimpleChanges): void {
-    if (size) {
-      this.#renderer.removeClass(this.#element.nativeElement, `ngp-${this.#size}`);
-      this.#renderer.addClass(this.#element.nativeElement, `ngp-${this.size}`);
-      this.#size = this.size;
-    }
+    this.applySize(size.currentValue);
+  }
+
+  private applySize(size: SizeVariant): void {
+    this.#renderer.removeClass(this.#element.nativeElement, `ngp-${this.#size}`);
+    this.#renderer.addClass(this.#element.nativeElement, `ngp-${size}`);
+    this.#size = size;
   }
 }
 

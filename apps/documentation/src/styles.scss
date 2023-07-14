@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../../../packages/themes/src/ngp-theme.scss';
+
+html,
+body {
+  font-family: 'Inter var', sans-serif;
+}
