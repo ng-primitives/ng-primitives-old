@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ng-primitives/button": ["packages/button/src/index.ts"]
+      "@ng-primitives/button": ["packages/button/src/index.ts"],
+      "@ng-primitives/common": ["packages/common/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
