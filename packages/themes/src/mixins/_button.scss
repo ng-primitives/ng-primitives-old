@@ -40,6 +40,9 @@
   // color: primary: hover
   --btn-primary-hover-bg: var(--color-primary-700);
 
+  // color: primary: active
+  --btn-primary-active-bg: var(--color-primary-800);
+
   // color: secondary
   --btn-secondary-bg: var(--color-white);
   --btn-secondary-color: var(--color-gray-700);
@@ -48,4 +51,7 @@
 
   // color: secondary: hover
   --btn-secondary-hover-bg: var(--color-gray-50);
+
+  // color: secondary: active
+  --btn-secondary-active-bg: var(--color-gray-100);
 }
