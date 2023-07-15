@@ -1,12 +1,17 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { SizeDirective } from '@ng-primitives/common';
 
 @Component({
-  selector: 'ngp-input',
+  selector: 'input[ngp-input]',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  hostDirectives: [{ directive: SizeDirective, inputs: ['ngpSize: size'] }],
 })
-export class InputComponent {}
+export class NgpInputComponent {
+  /** Define the size variant */
+  @Input() size?: InputSize;
+}
+
+export type InputSize = 'sm' | 'md' | 'lg';

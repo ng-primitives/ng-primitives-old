@@ -1,0 +1,42 @@
+@mixin input-size($size) {
+  &.ngp-#{ $size } {
+    --input-height: var(--input-#{$size}-height);
+    --input-radius: var(--input-#{$size}-radius);
+    --input-padding: var(--input-#{$size}-padding);
+    --input-font-size: var(--input-#{$size}-font-size);
+  }
+}
+
+:host {
+  height: var(--input-height);
+  border-radius: var(--input-radius);
+  border: var(--input-border-width) solid var(--input-border-color);
+  padding: var(--input-padding);
+  color: var(--input-color);
+  font-size: var(--input-font-size);
+  font-family: var(--input-font);
+  font-weight: var(--input-font-weight);
+  background: var(--input-bg);
+  outline: var(--input-outline);
+  box-shadow: var(--input-shadow);
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: var(--input-placeholder-color);
+  }
+
+  &:focus {
+    --input-shadow: var(--input-focus-outline);
+  }
+
+  &:disabled {
+    --input-bg: var(--input-disabled-bg);
+    --input-color: var(--input-disabled-color);
+    --input-border-color: var(--input-disabled-border-color);
+    --input-placeholder-color: var(--input-placeholder-disabled-color);
+  }
+
+  @include input-size(sm);
+  @include input-size(md);
+  @include input-size(lg);
+}

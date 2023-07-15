@@ -4,4 +4,6 @@
 html,
 body {
   font-family: 'Inter var', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

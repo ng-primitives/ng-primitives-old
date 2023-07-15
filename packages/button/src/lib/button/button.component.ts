@@ -13,7 +13,7 @@ import { ColorDirective, ColorVariant, SizeDirective, SizeVariant } from '@ng-pr
     { directive: SizeDirective, inputs: ['ngpSize: size'] },
   ],
 })
-export class ButtonComponent {
+export class NgpButtonComponent {
   /** Define the color variant */
   @Input() color?: ColorVariant;
 

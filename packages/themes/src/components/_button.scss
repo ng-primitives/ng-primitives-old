@@ -1,5 +1,5 @@
 @mixin ngp-button {
-  --btn-font: inherit;
+  --btn-font: var(--font-family);
   --btn-font-weight: 500;
   --btn-cursor: pointer;
   --btn-border-style: solid;
