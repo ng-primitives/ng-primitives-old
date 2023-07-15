@@ -1,14 +1,20 @@
-@use 'mixins/colors' as colors;
-@use 'mixins/typography' as typography;
-@use 'mixins/button' as button;
-@use 'mixins/focus' as focus;
+@use 'tokens/colors' as colors;
+@use 'tokens/typography' as typography;
+@use 'tokens/focus' as focus;
+@use 'tokens/spacing' as spacing;
+@use 'tokens/border' as border;
+@use 'components/button' as button;
+@use 'components/input' as input;
 
 .ngp-default-theme {
   // tokens
   @include colors.ngp-colors;
   @include typography.ngp-typography;
   @include focus.ngp-focus;
+  @include spacing.ngp-spacing;
+  @include border.ngp-border;
 
   // components
   @include button.ngp-button;
+  @include input.ngp-input;
 }
