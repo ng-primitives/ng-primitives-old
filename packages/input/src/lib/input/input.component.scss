@@ -19,6 +19,7 @@
   background: var(--input-bg);
   outline: var(--input-outline);
   box-shadow: var(--input-shadow);
+  width: var(--input-width);
   box-sizing: border-box;
 
   &::placeholder {
@@ -39,4 +40,17 @@
   @include input-size(sm);
   @include input-size(md);
   @include input-size(lg);
+}
+
+// Input Group
+:host-context(ngp-input-group) :host {
+  --input-bg: transparent;
+  --input-border-width: 0;
+  --input-focus-outline: none;
+  --input-shadow: none;
+  --input-width: 100%;
+  --input-height: 100%;
+  --input-sm-padding: 0;
+  --input-md-padding: 0;
+  --input-lg-padding: 0;
 }

@@ -13,7 +13,7 @@ import {
   selector: '[ngpColor]',
   standalone: true,
 })
-export class ColorDirective implements OnInit, OnChanges {
+export class NgpColorDirective implements OnInit, OnChanges {
   /** Access the element ref */
   readonly #element = inject(ElementRef<HTMLElement>);
 

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { SizeDirective } from '@ng-primitives/common';
+import { NgpSizeDirective } from '@ng-primitives/common';
 
 @Component({
   selector: 'input[ngp-input]',
@@ -7,7 +7,7 @@ import { SizeDirective } from '@ng-primitives/common';
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  hostDirectives: [{ directive: SizeDirective, inputs: ['ngpSize: size'] }],
+  hostDirectives: [{ directive: NgpSizeDirective, inputs: ['ngpSize: size'] }],
 })
 export class NgpInputComponent {
   /** Define the size variant */

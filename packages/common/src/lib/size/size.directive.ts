@@ -13,7 +13,7 @@ import {
   selector: '[ngpSize]',
   standalone: true,
 })
-export class SizeDirective implements OnInit, OnChanges {
+export class NgpSizeDirective implements OnInit, OnChanges {
   /** Access the element ref */
   readonly #element = inject(ElementRef<HTMLElement>);
 

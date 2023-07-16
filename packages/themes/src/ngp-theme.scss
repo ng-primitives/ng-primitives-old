@@ -5,6 +5,7 @@
 @use 'tokens/border' as border;
 @use 'components/button' as button;
 @use 'components/input' as input;
+@use 'components/input-group' as input-group;
 
 .ngp-default-theme {
   // tokens
@@ -17,4 +18,5 @@
   // components
   @include button.ngp-button;
   @include input.ngp-input;
+  @include input-group.ngp-input-group;
 }
