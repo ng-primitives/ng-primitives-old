@@ -19,9 +19,14 @@ import {
   ],
 })
 export class NgpButtonComponent {
-  /** Define the color variant */
+  /**
+   * Define the button color variant.
+   */
   @Input() color?: ColorVariant;
 
-  /** Define the size variant */
+  /**
+   * Define the button size variant.
+   * @default 'md'
+   */
   @Input() size?: SizeVariant;
 }

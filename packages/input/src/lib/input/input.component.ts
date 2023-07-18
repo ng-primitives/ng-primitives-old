@@ -10,7 +10,10 @@ import { NgpSizeDirective } from '@ng-primitives/common';
   hostDirectives: [{ directive: NgpSizeDirective, inputs: ['ngpSize: size'] }],
 })
 export class NgpInputComponent {
-  /** Define the size variant */
+  /**
+   * Define the input size.
+   * @default 'md'
+   */
   @Input() size?: InputSize;
 }
 

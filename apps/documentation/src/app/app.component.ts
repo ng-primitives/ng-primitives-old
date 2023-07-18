@@ -3,10 +3,17 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { lucideSearch } from '@ng-icons/lucide';
 import { NgpButtonComponent } from '@ng-primitives/button';
 import { NgpInputComponent, NgpInputGroupComponent } from '@ng-primitives/input';
+import { NgpTooltipDirective } from '@ng-primitives/tooltip';
 
 @Component({
   standalone: true,
-  imports: [NgpButtonComponent, NgpInputComponent, NgpInputGroupComponent, NgIconComponent],
+  imports: [
+    NgpButtonComponent,
+    NgpInputComponent,
+    NgpInputGroupComponent,
+    NgIconComponent,
+    NgpTooltipDirective,
+  ],
   selector: 'ng-primitives-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

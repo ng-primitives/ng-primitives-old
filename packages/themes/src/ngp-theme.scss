@@ -6,6 +6,7 @@
 @use 'components/button' as button;
 @use 'components/input' as input;
 @use 'components/input-group' as input-group;
+@use 'components/tooltip' as tooltip;
 
 .ngp-default-theme {
   // tokens
@@ -19,4 +20,5 @@
   @include button.ngp-button;
   @include input.ngp-input;
   @include input-group.ngp-input-group;
+  @include tooltip.ngp-tooltip;
 }

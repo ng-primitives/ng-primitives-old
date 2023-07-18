@@ -14,9 +14,14 @@ import { InputSize } from '../input/input.component';
   ],
 })
 export class NgpInputGroupComponent {
-  /** Define the size of the input group */
+  /**
+   * Define the input group size.
+   */
   @Input() size?: InputSize;
 
-  /** Determine if the input group is disabled */
+  /**
+   * Define the input group disabled state.
+   * @default false
+   */
   @Input({ transform: booleanAttribute }) disabled?: boolean;
 }

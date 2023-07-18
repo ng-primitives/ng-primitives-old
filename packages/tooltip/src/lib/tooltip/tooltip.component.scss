@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  position: absolute;
+}
+
+.tooltip-content {
+  background-color: red;
+  color: white;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: blue;
+}

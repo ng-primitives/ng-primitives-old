@@ -17,7 +17,8 @@
     "paths": {
       "@ng-primitives/button": ["packages/button/src/index.ts"],
       "@ng-primitives/common": ["packages/common/src/index.ts"],
-      "@ng-primitives/input": ["packages/input/src/index.ts"]
+      "@ng-primitives/input": ["packages/input/src/index.ts"],
+      "@ng-primitives/tooltip": ["packages/tooltip/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
