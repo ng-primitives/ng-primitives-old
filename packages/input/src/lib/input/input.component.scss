@@ -1,5 +1,6 @@
 @mixin input-size($size) {
-  &.ngp-#{ $size } {
+  :host.ngp-#{ $size },
+  :host-context(ngp-input-group.ngp-#{ $size }) :host {
     --input-height: var(--input-#{$size}-height);
     --input-radius: var(--input-#{$size}-radius);
     --input-padding: var(--input-#{$size}-padding);
@@ -36,14 +37,15 @@
     --input-border-color: var(--input-disabled-border-color);
     --input-placeholder-color: var(--input-placeholder-disabled-color);
   }
-
-  @include input-size(sm);
-  @include input-size(md);
-  @include input-size(lg);
 }
 
+@include input-size(sm);
+@include input-size(md);
+@include input-size(lg);
+
 // Input Group
-:host-context(ngp-input-group) :host {
+:host-context(ngp-input-group) :host,
+:host-context(ngp-input-group.ngp-disabled) :host {
   --input-bg: transparent;
   --input-border-width: 0;
   --input-focus-outline: none;
