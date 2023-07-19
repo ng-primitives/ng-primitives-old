@@ -20,7 +20,7 @@
   background: var(--input-bg);
   outline: var(--input-outline);
   box-shadow: var(--input-shadow);
-  width: var(--input-width);
+  width: var(--input-width, 100%);
   box-sizing: border-box;
 
   &::placeholder {

@@ -1,0 +1,8 @@
+:host {
+  display: flex;
+  align-items: center;
+  color: var(--hint-color);
+  font-size: var(--hint-font-size);
+  font-weight: var(--hint-font-weight);
+  column-gap: var(--hint-gap);
+}

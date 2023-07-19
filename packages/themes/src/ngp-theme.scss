@@ -5,6 +5,7 @@
 @use 'tokens/border' as border;
 @use 'components/button' as button;
 @use 'components/checkbox' as checkbox;
+@use 'components/form' as form;
 @use 'components/input' as input;
 @use 'components/input-group' as input-group;
 @use 'components/tooltip' as tooltip;
@@ -20,6 +21,7 @@
   // components
   @include button.ngp-button;
   @include checkbox.ngp-checkbox;
+  @include form.ngp-form;
   @include input.ngp-input;
   @include input-group.ngp-input-group;
   @include tooltip.ngp-tooltip;
