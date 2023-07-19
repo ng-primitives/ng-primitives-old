@@ -1,0 +1,83 @@
+@mixin checkbox-size($size) {
+  &.ngp-#{$size} {
+    // checkbox
+    --checkbox-size: var(--checkbox-#{$size}-size);
+    --checkbox-gap: var(--checkbox-#{$size}-gap);
+    --checkbox-radius: var(--checkbox-#{$size}-radius);
+
+    // checkbox label
+    --checkbox-label-font-size: var(--checkbox-#{$size}-label-font-size);
+    --checkbox-label-font-weight: var(--checkbox-#{$size}-label-font-weight);
+
+    // checkbox tick
+    --checkbox-tick-size: var(--checkbox-#{$size}-tick-size);
+  }
+}
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--checkbox-gap);
+
+  &:hover .ngp-checkbox-box:not(.ngp-checked):not(.ngp-indeterminate) {
+    --checkbox-border: var(--checkbox-hover-border);
+    --checkbox-shadow: var(--checkbox-hover-shadow);
+    --checkbox-bg: var(--checkbox-hover-bg);
+    --checkbox-color: var(--checkbox-hover-color);
+  }
+
+  @include checkbox-size(md);
+  @include checkbox-size(lg);
+}
+
+.ngp-checkbox-box {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  color: var(--checkbox-color);
+  height: var(--checkbox-size);
+  width: var(--checkbox-size);
+  border-radius: var(--checkbox-radius);
+  border: var(--checkbox-border);
+  font-size: var(--checkbox-tick-size);
+  box-shadow: var(--checkbox-shadow);
+  background: var(--checkbox-bg);
+
+  &.ngp-checked,
+  &.ngp-indeterminate {
+    --checkbox-border: var(--checkbox-checked-border);
+    --checkbox-shadow: var(--checkbox-checked-shadow);
+    --checkbox-bg: var(--checkbox-checked-bg);
+    --checkbox-color: var(--checkbox-checked-color);
+  }
+
+  &:focus-visible {
+    --checkbox-shadow: var(--checkbox-focus-shadow);
+  }
+}
+
+.ngp-checkbox-input {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  pointer-events: none;
+  appearance: none;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  white-space: nowrap;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+
+.ngp-checkbox-label {
+  font-size: var(--checkbox-label-font-size);
+  font-weight: var(--checkbox-label-font-weight);
+  color: var(--checkbox-label-color);
+
+  &:empty {
+    display: none;
+  }
+}

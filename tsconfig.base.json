@@ -16,7 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@ng-primitives/button": ["packages/button/src/index.ts"],
+      "@ng-primitives/checkbox": ["packages/checkbox/src/index.ts"],
       "@ng-primitives/common": ["packages/common/src/index.ts"],
+      "@ng-primitives/form": ["packages/form/src/index.ts"],
       "@ng-primitives/input": ["packages/input/src/index.ts"],
       "@ng-primitives/tooltip": ["packages/tooltip/src/index.ts"]
     }

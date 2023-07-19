@@ -41,7 +41,7 @@
   @include input-group-size(lg);
 }
 
-.input-group-addon {
+.ngp-input-group-addon {
   display: inline-flex;
   flex: none;
   color: var(--input-group-addon-color);
