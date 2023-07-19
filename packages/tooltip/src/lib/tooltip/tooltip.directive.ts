@@ -9,19 +9,10 @@ import {
   Injector,
   Input,
   TemplateRef,
-  booleanAttribute,
   inject,
   numberAttribute,
 } from '@angular/core';
-import {
-  Middleware,
-  Placement,
-  arrow,
-  autoUpdate,
-  computePosition,
-  flip,
-  offset,
-} from '@floating-ui/dom';
+import { Middleware, Placement, autoUpdate, computePosition, flip, offset } from '@floating-ui/dom';
 import { NgpTooltipComponent } from './tooltip.component';
 
 @Directive({
@@ -54,15 +45,9 @@ export class NgpTooltipDirective {
 
   /**
    * Define the tooltip offset.
-   * @default 0
+   * @default 4
    */
-  @Input({ alias: 'ngpTooltipOffset', transform: numberAttribute }) offset: number = 0;
-
-  /**
-   * Define if the tooltip should have an arrow.
-   * @default true
-   */
-  @Input({ alias: 'ngpTooltipArrow', transform: booleanAttribute }) arrow: boolean = true;
+  @Input({ alias: 'ngpTooltipOffset', transform: numberAttribute }) offset: number = 4;
 
   /**
    * Access the tooltip trigger element.
@@ -110,6 +95,8 @@ export class NgpTooltipDirective {
       this.#componentRef!.location.nativeElement,
       this.updatePosition.bind(this),
     );
+
+    this.#componentRef?.instance.show(this.delay);
   }
 
   /**
@@ -122,9 +109,11 @@ export class NgpTooltipDirective {
       return;
     }
 
-    this.#componentRef.destroy();
-    this.#componentRef = undefined;
-    this.#destroyAutoPlacement?.();
+    this.#componentRef.instance.hide(this.hideDelay, () => {
+      this.#componentRef?.destroy();
+      this.#componentRef = undefined;
+      this.#destroyAutoPlacement?.();
+    });
   }
 
   /**
@@ -157,7 +146,6 @@ export class NgpTooltipDirective {
     }
 
     this.#componentRef.instance.content = this.content;
-    this.#componentRef.instance.showArrow = this.arrow;
     this.#componentRef.changeDetectorRef.detectChanges();
   }
 
@@ -165,15 +153,11 @@ export class NgpTooltipDirective {
    * Update the tooltip position.
    */
   private async updatePosition(): Promise<void> {
-    const middleware: Middleware[] = [offset(this.offset), flip()];
-
-    if (this.arrow && this.#componentRef!.instance.arrow.nativeElement) {
-      middleware.push(
-        arrow({
-          element: this.#componentRef!.instance.arrow.nativeElement,
-        }),
-      );
+    if (!this.#componentRef?.location.nativeElement) {
+      return;
     }
+
+    const middleware: Middleware[] = [offset(this.offset), flip()];
 
     const position = await computePosition(
       this.#trigger.nativeElement,
@@ -188,14 +172,6 @@ export class NgpTooltipDirective {
       x: position.x,
       y: position.y,
     };
-
-    this.#componentRef!.instance.arrowPosition = {
-      x: position.middlewareData.arrow?.x,
-      y: position.middlewareData.arrow?.y,
-    };
-
-    console.log(this.#componentRef!.instance.position);
-    console.log(this.#componentRef!.instance.arrowPosition);
 
     this.#componentRef!.changeDetectorRef.detectChanges();
   }

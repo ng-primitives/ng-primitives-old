@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, TemplateRef, ViewChild } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { Coords } from '@floating-ui/dom';
 
 @Component({
@@ -11,6 +11,7 @@ import { Coords } from '@floating-ui/dom';
   host: {
     '[style.left.px]': 'position?.x',
     '[style.top.px]': 'position?.y',
+    '[style.opacity]': 'open ? 1 : 0',
   },
 })
 export class NgpTooltipComponent {
@@ -20,23 +21,56 @@ export class NgpTooltipComponent {
   content!: TemplateRef<void> | string;
 
   /**
-   * Define if the tooltip should have an arrow.
-   * @default true
-   */
-  showArrow: boolean = true;
-
-  /**
-   * Access the tooltip arrow element.
-   */
-  @ViewChild('arrow', { static: true }) arrow!: ElementRef<HTMLElement>;
-
-  /**
    * The position of the tooltip
    */
   position?: Partial<Coords>;
 
   /**
-   * The position of the tooltip arrow
+   * Define the tooltip open state.
+   * @default false
    */
-  arrowPosition?: Partial<Coords>;
+  protected open?: boolean;
+
+  /**
+   * Store the open timeout.
+   */
+  #showTimeout?: number;
+
+  /**
+   * Store the close timeout.
+   */
+  #hideTimeout?: number;
+
+  /**
+   * Determine if the content is a template.
+   */
+  get templateOutlet(): TemplateRef<void> {
+    return this.content instanceof TemplateRef ? this.content : this.defaultContent;
+  }
+
+  /**
+   * Access the default tooltip content.
+   */
+  @ViewChild('defaultContent') readonly defaultContent!: TemplateRef<void>;
+
+  /**
+   * Open the tooltip.
+   */
+  show(delay: number): void {
+    clearInterval(this.#hideTimeout);
+    this.#showTimeout = setTimeout(() => (this.open = true), delay);
+  }
+
+  /**
+   * Close the tooltip.
+   * @param delay
+   * @param callback
+   */
+  hide(delay: number, callback?: () => void): void {
+    clearInterval(this.#showTimeout);
+    this.#hideTimeout = setTimeout(() => {
+      this.open = false;
+      callback?.();
+    }, delay);
+  }
 }

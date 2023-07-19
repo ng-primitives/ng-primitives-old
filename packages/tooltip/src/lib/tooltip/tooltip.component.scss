@@ -1,16 +1,14 @@
 :host {
   display: block;
   position: absolute;
-}
-
-.tooltip-content {
-  background-color: red;
-  color: white;
-}
-
-.tooltip-arrow {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background-color: blue;
+  background: var(--tooltip-bg);
+  border: var(--tooltip-border);
+  color: var(--tooltip-color);
+  padding: var(--tooltip-padding);
+  border-radius: var(--tooltip-radius);
+  font-size: var(--tooltip-font-size);
+  font-weight: var(--tooltip-font-weight);
+  box-shadow: var(--tooltip-shadow);
+  transition: var(--tooltip-transition);
+  box-sizing: border-box;
 }
