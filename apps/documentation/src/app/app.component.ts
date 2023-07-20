@@ -11,6 +11,7 @@ import {
 } from '@ng-primitives/form';
 import { NgpInputComponent, NgpInputGroupComponent } from '@ng-primitives/input';
 import { NgpTooltipDirective } from '@ng-primitives/tooltip';
+import { NgpBadgeComponent } from '@ng-primitives/badge';
 
 @Component({
   standalone: true,
@@ -26,6 +27,7 @@ import { NgpTooltipDirective } from '@ng-primitives/tooltip';
     NgpHintComponent,
     NgpErrorComponent,
     NgpLabelComponent,
+    NgpBadgeComponent,
   ],
   selector: 'ng-primitives-root',
   templateUrl: './app.component.html',

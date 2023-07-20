@@ -1,0 +1,79 @@
+@mixin ngp-badge {
+  --badge-border-width: 0;
+  --badge-border-style: solid;
+  --badge-border-color: transparent;
+
+  // badge: primary
+  --badge-primary-color: var(--color-primary-600);
+  --badge-primary-bg: var(--color-primary-100);
+  --badge-primary-border-color: transparent;
+
+  // badge: secondary
+  --badge-secondary-color: var(--color-gray-900);
+  --badge-secondary-bg: var(--color-gray-100);
+  --badge-secondary-border-color: transparent;
+
+  // badge: blue
+  --badge-blue-color: var(--color-blue-dark);
+  --badge-blue-bg: var(--color-blue-light);
+  --badge-blue-border-color: transparent;
+
+  // badge: yellow
+  --badge-yellow-color: var(--color-yellow-dark);
+  --badge-yellow-bg: var(--color-yellow-light);
+  --badge-yellow-border-color: transparent;
+
+  // badge: red
+  --badge-red-color: var(--color-red-dark);
+  --badge-red-bg: var(--color-red-light);
+  --badge-red-border-color: transparent;
+
+  // badge: green
+  --badge-green-color: var(--color-green-dark);
+  --badge-green-bg: var(--color-green-light);
+  --badge-green-border-color: transparent;
+
+  // badge: purple
+  --badge-purple-color: var(--color-purple-dark);
+  --badge-purple-bg: var(--color-purple-light);
+  --badge-purple-border-color: transparent;
+
+
+  // badge: sm
+  --badge-sm-height: 20px;
+  --badge-sm-font-size: 10px;
+  --badge-sm-font-weight: 400;
+  --badge-sm-line-height: 12px;
+  --badge-sm-padding: 0 8px;
+  --badge-sm-border-radius: 20px;
+  --badge-sm-gap: 6px;
+
+  // badge dot: sm
+  --badge-dot-sm-size: 4px;
+
+  // badge: md
+  --badge-md-height: 24px;
+  --badge-md-font-size: 12px;
+  --badge-md-font-weight: 400;
+  --badge-md-line-height: 16px;
+  --badge-md-padding: 2px 8px;
+  --badge-md-border-radius: 24px;
+  --badge-md-gap: 8px;
+
+  // badge dot: md
+  --badge-dot-md-size: 4px;
+
+  // badge: lg
+  --badge-lg-height: 32px;
+  --badge-lg-font-size: 14px;
+  --badge-lg-font-weight: 400;
+  --badge-lg-line-height: 20px;
+  --badge-lg-padding: 0 12px;
+  --badge-lg-border-radius: 32px;
+  --badge-lg-gap: 8px;
+
+  // badge dot: lg
+  --badge-dot-lg-size: 4px;
+
+
+}

@@ -1,0 +1,63 @@
+@mixin badge-size($size) {
+  &.ngp-#{$size} {
+    --badge-height: var(--badge-#{$size}-height);
+    --badge-font-size: var(--badge-#{$size}-font-size);
+    --badge-font-weight: var(--badge-#{$size}-font-weight);
+    --badge-line-height: var(--badge-#{$size}-line-height);
+    --badge-padding: var(--badge-#{$size}-padding);
+    --badge-border-radius: var(--badge-#{$size}-border-radius);
+    --badge-gap: var(--badge-#{$size}-gap);
+
+    // dot
+    --badge-dot-size: var(--badge-dot-#{$size}-size);
+  }
+}
+
+@mixin badge-color($color) {
+  &.ngp-#{$color} {
+    --badge-color: var(--badge-#{$color}-color);
+    --badge-bg: var(--badge-#{$color}-bg);
+    --badge-border-color: var(--badge-#{$color}-border-color);
+
+    // dot
+    --badge-dot-bg: var(--badge-#{$color}-color);
+  }
+}
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  height: var(--badge-height);
+  padding: var(--badge-padding);
+  border-radius: var(--badge-border-radius);
+  font-size: var(--badge-font-size);
+  font-weight: var(--badge-font-weight);
+  line-height: var(--badge-line-height);
+  background: var(--badge-bg);
+  color: var(--badge-color);
+  column-gap: var(--badge-gap);
+  box-sizing: border-box;
+
+  // size modifiers
+  @include badge-size(sm);
+  @include badge-size(md);
+  @include badge-size(lg);
+
+  // color modifiers
+  @include badge-color(primary);
+  @include badge-color(secondary);
+  @include badge-color(blue);
+  @include badge-color(yellow);
+  @include badge-color(red);
+  @include badge-color(green);
+  @include badge-color(purple);
+}
+
+.ngp-badge-dot {
+  display: inline-block;
+  width: var(--badge-dot-size);
+  height: var(--badge-dot-size);
+  background: var(--badge-dot-bg);
+  border-radius: 100%;
+  box-sizing: border-box;
+}
