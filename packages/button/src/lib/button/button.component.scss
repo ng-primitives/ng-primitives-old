@@ -64,8 +64,6 @@
   border-width: var(--btn-border-width);
   border-color: var(--btn-border-color);
   padding: var(--btn-padding);
-  font-size: var(--btn-font-size);
-  font-weight: var(--btn-font-weight);
   background: var(--btn-bg);
   color: var(--btn-color);
   box-shadow: var(--btn-shadow);
@@ -81,4 +79,9 @@
   @include btn-size(sm);
   @include btn-size(md);
   @include btn-size(lg);
+}
+
+.ngp-button-label {
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
 }

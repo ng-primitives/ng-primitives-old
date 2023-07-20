@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import {
   ColorVariant,
@@ -7,17 +8,18 @@ import {
 } from '@ng-primitives/common';
 
 @Component({
-  selector: 'button[ngp-button]',
+  selector: 'button[ngp-icon-button]',
   standalone: true,
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss'],
+  imports: [CommonModule],
+  templateUrl: './icon-button.component.html',
+  styleUrls: ['./icon-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
     { directive: NgpColorDirective, inputs: ['ngpColor: color'] },
     { directive: NgpSizeDirective, inputs: ['ngpSize: size'] },
   ],
 })
-export class NgpButtonComponent {
+export class NgpIconButtonComponent {
   /**
    * Define the button color variant.
    */

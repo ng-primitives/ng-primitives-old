@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { lucideInfo, lucideSearch } from '@ng-icons/lucide';
-import { NgpButtonComponent } from '@ng-primitives/button';
+import { NgpButtonComponent, NgpIconButtonComponent } from '@ng-primitives/button';
 import { NgpCheckboxComponent } from '@ng-primitives/checkbox';
 import {
   NgpErrorComponent,
@@ -16,6 +16,7 @@ import { NgpTooltipDirective } from '@ng-primitives/tooltip';
   standalone: true,
   imports: [
     NgpButtonComponent,
+    NgpIconButtonComponent,
     NgpInputComponent,
     NgpInputGroupComponent,
     NgIconComponent,

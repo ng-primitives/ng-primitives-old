@@ -55,3 +55,56 @@
   // color: secondary: active
   --btn-secondary-active-bg: var(--color-gray-100);
 }
+
+@mixin ngp-icon-button {
+  --icon-btn-cursor: var(--btn-cursor);
+  --icon-btn-border-style: var(--btn-border-style);
+  --icon-btn-border-width: var(--btn-border-width);
+  --icon-btn-border-color: var(--btn-border-color);
+  --icon-btn-shadow: var(--btn-shadow);
+  --icon-btn-outline: var(--btn-outline);
+  --icon-btn-transition: var(--btn-transition);
+  --icon-btn-focus-outline: var(--btn-focus-outline);
+
+  // size: sm
+  --icon-btn-sm-height: var(--btn-sm-height);
+  --icon-btn-sm-radius: var(--btn-sm-radius);
+  --icon-btn-sm-padding: 9px;
+  --icon-btn-sm-font-size: var(--font-size-xs);
+
+  // size: md
+  --icon-btn-md-height: var(--btn-md-height);
+  --icon-btn-md-radius: var(--btn-md-radius);
+  --icon-btn-md-padding: 10px;
+  --icon-btn-md-font-size: var(--font-size-sm);
+
+  // size: lg
+  --icon-btn-lg-height: var(--btn-lg-height);
+  --icon-btn-lg-radius: var(--btn-lg-radius);
+  --icon-btn-lg-padding: 11px;
+  --icon-btn-lg-font-size: var(--font-size-base);
+
+  // color: primary
+  --icon-btn-primary-bg: var(--btn-primary-bg);
+  --icon-btn-primary-color: var(--btn-primary-color);
+  --icon-btn-primary-border-color: var(--btn-primary-bg);
+  --icon-btn-primary-shadow: var(--btn-primary-shadow);
+
+  // color: primary: hover
+  --icon-btn-primary-hover-bg: var(--btn-primary-hover-bg);
+
+  // color: primary: active
+  --icon-btn-primary-active-bg: var(--btn-primary-active-bg);
+
+  // color: secondary
+  --icon-btn-secondary-bg: var(--btn-secondary-bg);
+  --icon-btn-secondary-color: var(--btn-secondary-color);
+  --icon-btn-secondary-border-color: var(--btn-secondary-border-color);
+  --icon-btn-secondary-shadow: var(--btn-secondary-shadow);
+
+  // color: secondary: hover
+  --icon-btn-secondary-hover-bg: var(--btn-secondary-hover-bg);
+
+  // color: secondary: active
+  --icon-btn-secondary-active-bg: var(--btn-secondary-active-bg);
+}
