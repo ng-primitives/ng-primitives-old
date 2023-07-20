@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { lucideInfo, lucideSearch } from '@ng-icons/lucide';
+import {
+  NgpAlertComponent,
+  NgpAlertMessageComponent,
+  NgpAlertTitleComponent,
+} from '@ng-primitives/alert';
+import { NgpBadgeComponent } from '@ng-primitives/badge';
 import { NgpButtonComponent, NgpIconButtonComponent } from '@ng-primitives/button';
 import { NgpCheckboxComponent } from '@ng-primitives/checkbox';
 import {
@@ -11,11 +17,13 @@ import {
 } from '@ng-primitives/form';
 import { NgpInputComponent, NgpInputGroupComponent } from '@ng-primitives/input';
 import { NgpTooltipDirective } from '@ng-primitives/tooltip';
-import { NgpBadgeComponent } from '@ng-primitives/badge';
 
 @Component({
   standalone: true,
   imports: [
+    NgpAlertComponent,
+    NgpAlertTitleComponent,
+    NgpAlertMessageComponent,
     NgpButtonComponent,
     NgpIconButtonComponent,
     NgpInputComponent,

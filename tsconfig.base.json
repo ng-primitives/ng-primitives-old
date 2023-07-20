@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ng-primitives/alert": ["packages/alert/src/index.ts"],
       "@ng-primitives/badge": ["packages/badge/src/index.ts"],
       "@ng-primitives/button": ["packages/button/src/index.ts"],
       "@ng-primitives/checkbox": ["packages/checkbox/src/index.ts"],
