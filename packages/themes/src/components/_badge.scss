@@ -1,79 +1,78 @@
+@mixin ngp-badge-color($name, $color, $bg, $border) {
+  --badge-#{$name}-color: var(--color-#{$color});
+  --badge-#{$name}-bg: var(--color-#{$bg});
+  --badge-#{$name}-border-color: var(--color-#{$border});
+}
+
+@mixin ngp-badge-size(
+  $name,
+  $height,
+  $fontSize,
+  $fontWeight,
+  $lineHeight,
+  $padding,
+  $borderRadius,
+  $gap,
+  $dotSize
+) {
+  --badge-#{$name}-height: #{$height};
+  --badge-#{$name}-font-size: #{$fontSize};
+  --badge-#{$name}-font-weight: #{$fontWeight};
+  --badge-#{$name}-line-height: #{$lineHeight};
+  --badge-#{$name}-padding: #{$padding};
+  --badge-#{$name}-border-radius: #{$borderRadius};
+  --badge-#{$name}-gap: #{$gap};
+
+  --badge-dot-#{$name}-size: #{$dotSize};
+}
+
+@mixin ngp-badge-dot-size($name, $size) {
+}
+
 @mixin ngp-badge {
-  --badge-border-width: 0;
+  --badge-border-width: 1px;
   --badge-border-style: solid;
   --badge-border-color: transparent;
 
   // badge: primary
-  --badge-primary-color: var(--color-primary-600);
-  --badge-primary-bg: var(--color-primary-100);
-  --badge-primary-border-color: transparent;
-
-  // badge: secondary
-  --badge-secondary-color: var(--color-gray-900);
-  --badge-secondary-bg: var(--color-gray-100);
-  --badge-secondary-border-color: transparent;
-
-  // badge: blue
-  --badge-blue-color: var(--color-blue-dark);
-  --badge-blue-bg: var(--color-blue-light);
-  --badge-blue-border-color: transparent;
-
-  // badge: yellow
-  --badge-yellow-color: var(--color-yellow-dark);
-  --badge-yellow-bg: var(--color-yellow-light);
-  --badge-yellow-border-color: transparent;
-
-  // badge: red
-  --badge-red-color: var(--color-red-dark);
-  --badge-red-bg: var(--color-red-light);
-  --badge-red-border-color: transparent;
-
-  // badge: green
-  --badge-green-color: var(--color-green-dark);
-  --badge-green-bg: var(--color-green-light);
-  --badge-green-border-color: transparent;
-
-  // badge: purple
-  --badge-purple-color: var(--color-purple-dark);
-  --badge-purple-bg: var(--color-purple-light);
-  --badge-purple-border-color: transparent;
-
+  @include ngp-badge-color($name: primary, $color: rose-700, $bg: rose-50, $border: rose-200);
 
   // badge: sm
-  --badge-sm-height: 20px;
-  --badge-sm-font-size: 10px;
-  --badge-sm-font-weight: 400;
-  --badge-sm-line-height: 12px;
-  --badge-sm-padding: 0 8px;
-  --badge-sm-border-radius: 20px;
-  --badge-sm-gap: 6px;
-
-  // badge dot: sm
-  --badge-dot-sm-size: 4px;
+  @include ngp-badge-size(
+    $name: sm,
+    $height: 20px,
+    $fontSize: 10px,
+    $fontWeight: 400,
+    $lineHeight: 12px,
+    $padding: 0 8px,
+    $borderRadius: 20px,
+    $gap: 6px,
+    $dotSize: 3px
+  );
 
   // badge: md
-  --badge-md-height: 24px;
-  --badge-md-font-size: 12px;
-  --badge-md-font-weight: 400;
-  --badge-md-line-height: 16px;
-  --badge-md-padding: 2px 8px;
-  --badge-md-border-radius: 24px;
-  --badge-md-gap: 8px;
-
-  // badge dot: md
-  --badge-dot-md-size: 4px;
+  @include ngp-badge-size(
+    $name: md,
+    $height: 24px,
+    $fontSize: 12px,
+    $fontWeight: 400,
+    $lineHeight: 16px,
+    $padding: 2px 8px,
+    $borderRadius: 24px,
+    $gap: 8px,
+    $dotSize: 4px
+  );
 
   // badge: lg
-  --badge-lg-height: 32px;
-  --badge-lg-font-size: 14px;
-  --badge-lg-font-weight: 400;
-  --badge-lg-line-height: 20px;
-  --badge-lg-padding: 0 12px;
-  --badge-lg-border-radius: 32px;
-  --badge-lg-gap: 8px;
-
-  // badge dot: lg
-  --badge-dot-lg-size: 4px;
-
-
+  @include ngp-badge-size(
+    $name: lg,
+    $height: 32px,
+    $fontSize: 14px,
+    $fontWeight: 400,
+    $lineHeight: 20px,
+    $padding: 0 12px,
+    $borderRadius: 32px,
+    $gap: 8px,
+    $dotSize: 4px
+  );
 }
