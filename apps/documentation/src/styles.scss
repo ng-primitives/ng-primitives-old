@@ -1,10 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../../../packages/themes/src/ngp-theme.scss';
-
 html,
 body {
   font-family: 'Inter var', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }

@@ -1,0 +1,47 @@
+{
+  "name": "roving-focus",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/roving-focus/src",
+  "prefix": "ngp",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "packages/roving-focus/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/roving-focus/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/roving-focus/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/roving-focus/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/roving-focus/**/*.ts", "packages/roving-focus/**/*.html"]
+      }
+    }
+  }
+}

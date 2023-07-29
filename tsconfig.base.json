@@ -15,13 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ng-primitives/alert": ["packages/alert/src/index.ts"],
-      "@ng-primitives/badge": ["packages/badge/src/index.ts"],
-      "@ng-primitives/button": ["packages/button/src/index.ts"],
-      "@ng-primitives/checkbox": ["packages/checkbox/src/index.ts"],
-      "@ng-primitives/common": ["packages/common/src/index.ts"],
-      "@ng-primitives/form": ["packages/form/src/index.ts"],
-      "@ng-primitives/input": ["packages/input/src/index.ts"],
+      "@ng-primitives/accordion": ["packages/accordion/src/index.ts"],
+      "@ng-primitives/roving-focus": ["packages/roving-focus/src/index.ts"],
+      "@ng-primitives/tabs": ["packages/tabs/src/index.ts"],
       "@ng-primitives/tooltip": ["packages/tooltip/src/index.ts"]
     }
   },
