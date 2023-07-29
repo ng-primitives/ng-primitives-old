@@ -18,7 +18,8 @@
       "@ng-primitives/accordion": ["packages/accordion/src/index.ts"],
       "@ng-primitives/roving-focus": ["packages/roving-focus/src/index.ts"],
       "@ng-primitives/tabs": ["packages/tabs/src/index.ts"],
-      "@ng-primitives/tooltip": ["packages/tooltip/src/index.ts"]
+      "@ng-primitives/tooltip": ["packages/tooltip/src/index.ts"],
+      "@ng-primitives/workspace-plugins": ["packages/workspace-plugins/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
