@@ -22,7 +22,9 @@
           }
         ],
         "@angular-eslint/no-output-rename": "off",
-        "@angular-eslint/no-host-metadata-property": "off"
+        "@angular-eslint/no-input-rename": "off",
+        "@angular-eslint/no-host-metadata-property": "off",
+        "@typescript-eslint/no-inferrable-types": "off"
       },
       "extends": ["plugin:@nx/angular", "plugin:@angular-eslint/template/process-inline-templates"]
     },

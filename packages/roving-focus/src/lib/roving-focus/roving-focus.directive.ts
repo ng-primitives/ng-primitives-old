@@ -62,11 +62,7 @@ export class NgpRovingFocusDirective implements OnInit, OnChanges, OnDestroy {
     this.keyManager.withWrap(this.wrap);
 
     // update the key manager orientation
-    if (this.orientation === 'horizontal') {
-      this.keyManager.withHorizontalOrientation(this.directionality.value);
-    } else {
-      this.keyManager.withVerticalOrientation();
-    }
+    this.setOrientation(this.orientation);
 
     // update the key manager orientation if the document direction changes
     this.directionality.change
@@ -80,11 +76,7 @@ export class NgpRovingFocusDirective implements OnInit, OnChanges, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
     // update the key manager orientation
     if (changes['orientation']) {
-      if (this.orientation === 'horizontal') {
-        this.keyManager.withHorizontalOrientation(this.directionality.value);
-      } else {
-        this.keyManager.withVerticalOrientation();
-      }
+      this.setOrientation(this.orientation);
     }
 
     // update the key manager wrap
@@ -135,5 +127,19 @@ export class NgpRovingFocusDirective implements OnInit, OnChanges, OnDestroy {
    */
   onKeydown(event: KeyboardEvent): void {
     this.keyManager.onKeydown(event);
+  }
+
+  /**
+   * Set the orientation of the roving focus group.
+   * @param orientation The orientation of the roving focus group.
+   */
+  setOrientation(orientation: 'horizontal' | 'vertical'): void {
+    this.orientation = orientation;
+
+    if (orientation === 'horizontal') {
+      this.keyManager.withHorizontalOrientation(this.directionality.value);
+    } else {
+      this.keyManager.withVerticalOrientation();
+    }
   }
 }

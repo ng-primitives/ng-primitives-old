@@ -1,4 +1,5 @@
-import { Directive, Input, booleanAttribute } from '@angular/core';
+import { Directive, Input, OnInit, booleanAttribute } from '@angular/core';
+import { NgpRovingFocusDirective, injectRovingFocusGroup } from '@ng-primitives/roving-focus';
 import { injectTabsetConfig } from '../providers/tabset.config';
 import { injectTabset } from '../tabset/tabset.token';
 
@@ -6,10 +7,18 @@ import { injectTabset } from '../tabset/tabset.token';
   selector: '[ngpTabList]',
   standalone: true,
   host: {
+    role: 'tablist',
+    '[attr.aria-orientation]': 'tabset.orientation',
     '[attr.data-orientation]': 'tabset.orientation',
   },
+  hostDirectives: [
+    {
+      directive: NgpRovingFocusDirective,
+      inputs: ['ngpRovingFocusWrap: wrap'],
+    },
+  ],
 })
-export class NgpTabListDirective {
+export class NgpTabListDirective implements OnInit {
   /**
    * Access the global tab configuration
    */
@@ -21,8 +30,17 @@ export class NgpTabListDirective {
   protected readonly tabset = injectTabset();
 
   /**
-   * Whether focus should loop within the tab list when using the keyboard.
+   * Access the roving focus group directive
+   */
+  private readonly rovingFocus = injectRovingFocusGroup();
+
+  /**
+   * Whether focus should wrap within the tab list when using the keyboard.
    * @default true
    */
-  @Input({ alias: 'ngpTabListLoop', transform: booleanAttribute }) loop = this.config.loop;
+  @Input({ alias: 'ngpTabListWrap', transform: booleanAttribute }) wrap = this.config.wrap;
+
+  ngOnInit(): void {
+    this.rovingFocus.setOrientation(this.tabset.orientation);
+  }
 }

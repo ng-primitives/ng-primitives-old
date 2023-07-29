@@ -16,16 +16,16 @@ export interface NgpTabsetConfig {
   activateOnFocus: boolean;
 
   /**
-   * Whether focus should loop within the tab list when using the keyboard.
+   * Whether focus should wrap within the tab list when using the keyboard.
    * @default true
    */
-  loop: boolean;
+  wrap: boolean;
 }
 
 const defaultTabsetConfig: NgpTabsetConfig = {
   orientation: 'horizontal',
   activateOnFocus: true,
-  loop: true,
+  wrap: true,
 };
 
 /**

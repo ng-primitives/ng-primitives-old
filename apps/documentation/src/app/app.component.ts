@@ -4,8 +4,8 @@ import { lucideInfo, lucideSearch } from '@ng-icons/lucide';
 import { NgpRovingFocusDirective, NgpRovingFocusItemDirective } from '@ng-primitives/roving-focus';
 import {
   NgpTabButtonDirective,
-  NgpTabContentDirective,
   NgpTabListDirective,
+  NgpTabPanelDirective,
   NgpTabsetDirective,
 } from '@ng-primitives/tabs';
 
@@ -15,7 +15,7 @@ import {
     NgpTabsetDirective,
     NgpTabButtonDirective,
     NgpTabListDirective,
-    NgpTabContentDirective,
+    NgpTabPanelDirective,
     NgpRovingFocusDirective,
     NgpRovingFocusItemDirective,
   ],

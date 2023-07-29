@@ -1,5 +1,14 @@
-<div ngpRovingFocus ngpRovingFocusOrientation="horizontal">
-  <button ngpRovingFocusItem>Button 1</button>
-  <button ngpRovingFocusItem>Button 2</button>
-  <button ngpRovingFocusItem>Button 3</button>
+<div ngpTabset>
+  <div ngpTabList>
+    <button ngpTabButton ngpTabButtonValue="tab-1">Account</button>
+    <button ngpTabButton ngpTabButtonValue="tab-2">Password</button>
+  </div>
+
+  <div ngpTabPanel ngpTabPanelValue="tab-1">
+    Make changes to your account here. Click save when you're done.
+  </div>
+
+  <div ngpTabPanel ngpTabPanelValue="tab-2">
+    Change your password here. Click save when you're done.
+  </div>
 </div>

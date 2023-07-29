@@ -1,14 +1,21 @@
 import { Directive, HostListener, Input, booleanAttribute } from '@angular/core';
+import { NgpRovingFocusItemDirective } from '@ng-primitives/roving-focus';
 import { injectTabset } from '../tabset/tabset.token';
 
 @Directive({
   selector: '[ngpTabButton]',
   standalone: true,
   host: {
+    role: 'tab',
+    '[attr.id]': 'id',
+    '[attr.aria-controls]': 'ariaControls',
     '[attr.data-state]': 'active ? "active" : "inactive"',
     '[attr.data-disabled]': 'disabled',
     '[attr.data-orientation]': 'tabset.orientation',
   },
+  hostDirectives: [
+    { directive: NgpRovingFocusItemDirective, inputs: ['ngpRovingFocusItemDisabled: disabled'] },
+  ],
 })
 export class NgpTabButtonDirective {
   /**
@@ -26,6 +33,18 @@ export class NgpTabButtonDirective {
    * @default false
    */
   @Input({ alias: 'ngpTabButtonDisabled', transform: booleanAttribute }) disabled = false;
+
+  /**
+   * Determine the id of the tab button
+   * @internal
+   */
+  protected readonly id = `${this.tabset.id}-button-${this.value}`;
+
+  /**
+   * Determine the aria-controls of the tab button
+   * @internal
+   */
+  protected readonly ariaControls = `${this.tabset.id}-panel-${this.value}`;
 
   /**
    * Whether the tab is active
