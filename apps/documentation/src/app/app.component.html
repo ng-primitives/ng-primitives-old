@@ -1,3 +1,23 @@
+<!-- Overlay -->
+<div style="padding: 2rem">
+  <button
+    #trigger="ngpOverlayTrigger"
+    [ngpOverlayTrigger]="overlayRef"
+    ngpOverlayOffset="5"
+    (click)="trigger.show()"
+  >
+    Open Overlay
+  </button>
+</div>
+
+<ngp-overlay #overlayRef>
+  <div ngpOverlayContent class="tooltip">
+    <div ngpOverlayArrow class="tooltip-arrow"></div>
+    Hello World!
+  </div>
+</ngp-overlay>
+
+<!-- Tabset -->
 <div ngpTabset>
   <div ngpTabList>
     <button ngpTabButton ngpTabButtonValue="tab-1">Account</button>
