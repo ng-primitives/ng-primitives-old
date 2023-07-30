@@ -59,7 +59,7 @@ export class NgpTabsetDirective implements AfterContentInit {
   /**
    * Event emitted when the active tab changes
    */
-  @Output('ngpTabsetChange') readonly valueChange = new EventEmitter<string>();
+  @Output('ngpTabsetValueChange') readonly valueChange = new EventEmitter<string>();
 
   /**
    * Access the tabs within the tabset
