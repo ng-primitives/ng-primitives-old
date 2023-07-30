@@ -1,9 +1,9 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[ngpTooltip]',
+  selector: '[ngpTooltipArrow]',
   standalone: true,
 })
-export class TooltipDirective {
+export class TooltipArrowDirective {
   constructor() {}
 }
