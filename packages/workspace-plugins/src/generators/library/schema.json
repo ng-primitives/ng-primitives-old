@@ -12,6 +12,11 @@
         "index": 0
       },
       "x-prompt": "What name would you like to use?"
+    },
+    "skipDirective": {
+      "type": "boolean",
+      "description": "Skip the creation of a directive?",
+      "default": false
     }
   },
   "required": ["name"]
