@@ -7,6 +7,7 @@ import {
   EmbeddedViewRef,
   Injector,
   Input,
+  StaticProvider,
   TemplateRef,
   ViewContainerRef,
   booleanAttribute,
@@ -31,6 +32,9 @@ import { NgpOverlayTriggerToken } from './overlay-trigger.token';
   selector: '[ngpOverlayTrigger]',
   standalone: true,
   exportAs: 'ngpOverlayTrigger',
+  host: {
+    '[attr.data-state]': 'state',
+  },
 })
 export class NgpOverlayTriggerDirective {
   /**
@@ -142,6 +146,33 @@ export class NgpOverlayTriggerDirective {
   private dispose?: () => void;
 
   /**
+   * Store additional providers to register on the overlay.
+   */
+  private readonly providers: StaticProvider[] = [];
+
+  /**
+   * Determine the state of the overlay.
+   */
+  private get isOpen(): boolean {
+    return !!this.viewRef;
+  }
+
+  /**
+   * Determine the state of the overlay.
+   */
+  protected get state(): 'closed' | 'opening' | 'open' | 'closing' {
+    if (this.showDelayTimeout) {
+      return 'opening';
+    }
+
+    if (this.hideDelayTimeout) {
+      return 'closing';
+    }
+
+    return this.isOpen ? 'open' : 'closed';
+  }
+
+  /**
    * Create the overlay.
    */
   private createOverlay(): void {
@@ -163,6 +194,7 @@ export class NgpOverlayTriggerDirective {
             provide: NgpOverlayTriggerToken,
             useValue: this,
           },
+          ...this.providers,
         ],
       }),
     );
@@ -171,6 +203,7 @@ export class NgpOverlayTriggerDirective {
     this.viewRef.detectChanges();
 
     this.updateOverlayPosition();
+    this.showDelayTimeout = null;
   }
 
   /**
@@ -228,13 +261,14 @@ export class NgpOverlayTriggerDirective {
     this.viewRef = null;
 
     this.dispose?.();
+    this.hideDelayTimeout = null;
   }
 
   /**
    * Show the overlay.
    */
   show(): void {
-    if (this.disabled || this.viewRef) {
+    if (this.disabled || this.isOpen) {
       return;
     }
 
@@ -250,6 +284,10 @@ export class NgpOverlayTriggerDirective {
    * Hide the overlay.
    */
   hide(): void {
+    if (!this.isOpen) {
+      return;
+    }
+
     if (this.showDelayTimeout) {
       clearTimeout(this.showDelayTimeout);
       this.showDelayTimeout = null;
@@ -290,5 +328,14 @@ export class NgpOverlayTriggerDirective {
    */
   unregisterArrow(): void {
     this.arrow = null;
+  }
+
+  /**
+   * Register a provider on the overlay.
+   * @param provider The provider to register.
+   * @internal
+   */
+  registerProvider(provider: StaticProvider): void {
+    this.providers.push(provider);
   }
 }

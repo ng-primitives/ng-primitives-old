@@ -2,6 +2,7 @@ import {
   Directive,
   HostListener,
   Input,
+  OnInit,
   TemplateRef,
   booleanAttribute,
   inject,
@@ -10,10 +11,14 @@ import {
 import { Placement } from '@floating-ui/dom';
 import { NgpOverlayTriggerDirective } from '@ng-primitives/overlay';
 import { injectTooltipConfig } from '../providers/tooltip.config';
+import { NgpTooltipTriggerToken } from './tooltip-trigger.token';
 
 @Directive({
   selector: '[ngpTooltipTrigger]',
   standalone: true,
+  host: {
+    '[attr.aria-describedby]': 'tooltipId',
+  },
   hostDirectives: [
     {
       directive: NgpOverlayTriggerDirective,
@@ -31,7 +36,7 @@ import { injectTooltipConfig } from '../providers/tooltip.config';
     },
   ],
 })
-export class NgpTooltipTriggerDirective {
+export class NgpTooltipTriggerDirective implements OnInit {
   /**
    * Access the overlay trigger directive
    */
@@ -94,6 +99,18 @@ export class NgpTooltipTriggerDirective {
   @Input('ngpTooltipContainer') container: HTMLElement = this.tooltipConfig.container;
 
   /**
+   * The tooltip id.
+   */
+  protected tooltipId?: string;
+
+  ngOnInit(): void {
+    this.overlayTrigger.registerProvider({
+      provide: NgpTooltipTriggerToken,
+      useValue: this,
+    });
+  }
+
+  /**
    * Show the tooltip.
    */
   @HostListener('mouseenter')
@@ -107,7 +124,17 @@ export class NgpTooltipTriggerDirective {
    */
   @HostListener('mouseleave')
   @HostListener('blur')
+  @HostListener('window:keydown.escape')
   hide(): void {
     this.overlayTrigger.hide();
+  }
+
+  /**
+   * Define the tooltip id.
+   * @param id The tooltip id
+   * @internal
+   */
+  setTooltipId(id: string) {
+    this.tooltipId = id;
   }
 }
