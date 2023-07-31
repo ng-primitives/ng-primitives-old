@@ -17,6 +17,7 @@
     "paths": {
       "@ng-primitives/accordion": ["packages/accordion/src/index.ts"],
       "@ng-primitives/overlay": ["packages/overlay/src/index.ts"],
+      "@ng-primitives/progress": ["packages/progress/src/index.ts"],
       "@ng-primitives/roving-focus": ["packages/roving-focus/src/index.ts"],
       "@ng-primitives/tabs": ["packages/tabs/src/index.ts"],
       "@ng-primitives/tooltip": ["packages/tooltip/src/index.ts"],

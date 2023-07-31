@@ -76,4 +76,14 @@ function deleteComponent(tree: Tree, options: LibraryGeneratorSchema): void {
 
   // delete all files in the component directory
   tree.delete(componentPath);
+
+  // empty the index.ts file
+  const indexPath = joinPathFragments(
+    getWorkspaceLayout(tree).libsDir,
+    options.name,
+    'src',
+    'index.ts',
+  );
+
+  tree.write(indexPath, '');
 }

@@ -1,3 +1,9 @@
+<!-- Progress -->
+<div ngpProgress [ngpProgressValue]="progress">
+  <div ngpProgressIndicator [style.transform]="'translateX(-' + (100 - progress) + '%)'"></div>
+</div>
+
+<!-- Tooltip -->
 <div style="padding: 2rem">
   <button [ngpTooltipTrigger]="tooltip">Open Tooltip</button>
 </div>

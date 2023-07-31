@@ -6,6 +6,7 @@ import {
   NgpOverlayDirective,
   NgpOverlayTriggerDirective,
 } from '@ng-primitives/overlay';
+import { NgpProgressDirective, NgpProgressIndicatorDirective } from '@ng-primitives/progress';
 import {
   NgpTabButtonDirective,
   NgpTabListDirective,
@@ -36,10 +37,16 @@ import {
     NgpTooltipDirective,
     NgpTooltipTriggerDirective,
     NgpTooltipArrowDirective,
+
+    // Progress
+    NgpProgressDirective,
+    NgpProgressIndicatorDirective,
   ],
   selector: 'ng-primitives-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   viewProviders: [provideIcons({ lucideSearch, lucideInfo })],
 })
-export class AppComponent {}
+export class AppComponent {
+  progress = 50;
+}
