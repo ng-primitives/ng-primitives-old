@@ -1,33 +1,36 @@
-import { Directive, HostBinding, computed, inject } from '@angular/core';
-import { NgpAccordionPanel } from '../accordion-panel/accordion-panel.token';
-import { NgpAccordion } from '../accordion/accordion.token';
+import { Directive, computed } from '@angular/core';
+import { injectAccordionPanel } from '../accordion-panel/accordion-panel.token';
+import { injectAccordion } from '../accordion/accordion.token';
 
 @Directive({
   standalone: true,
+  host: {
+    '[attr.data-state]': 'state()',
+    '[attr.data-disabled]': 'isDisabled',
+    '[attr.data-orientation]': 'orientation',
+  },
 })
 export class NgpAccordionStateDirective {
   /**
    * Access the accordion the trigger belongs to.
    */
-  private readonly accordion = inject(NgpAccordion);
+  private readonly accordion = injectAccordion();
 
   /**
    * Access the panel the trigger belongs to.
    */
-  private readonly panel = inject(NgpAccordionPanel);
+  private readonly panel = injectAccordionPanel();
 
   /**
    * Determine the expanded state of the panel.
    * @internal
    */
-  @HostBinding('attr.data-state')
   readonly state = computed(() => (this.panel.isExpanded() ? 'expanded' : 'collapsed'));
 
   /**
    * Determine the disabled state of the panel.
    * @internal
    */
-  @HostBinding('attr.data-disabled')
   get isDisabled(): boolean {
     return this.panel.disabled || this.accordion.disabled;
   }
@@ -36,7 +39,6 @@ export class NgpAccordionStateDirective {
    * Determine the orientation of the accordion.
    * @internal
    */
-  @HostBinding('attr.data-orientation')
   get orientation(): 'horizontal' | 'vertical' {
     return this.accordion.orientation;
   }

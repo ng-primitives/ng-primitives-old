@@ -1,15 +1,7 @@
-import {
-  Directive,
-  EventEmitter,
-  Input,
-  Output,
-  booleanAttribute,
-  computed,
-  inject,
-} from '@angular/core';
-import { NgpAccordion } from '../accordion/accordion.token';
+import { Directive, EventEmitter, Input, Output, booleanAttribute, computed } from '@angular/core';
+import { injectAccordion } from '../accordion/accordion.token';
 import { NgpAccordionStateDirective } from '../common/accordion-state.directive';
-import { NgpAccordionPanel } from './accordion-panel.token';
+import { NgpAccordionPanelToken } from './accordion-panel.token';
 
 /**
  * A unique id for the panel.
@@ -19,14 +11,14 @@ let uniqueId = 0;
 @Directive({
   selector: '[ngpAccordionPanel]',
   standalone: true,
-  providers: [{ provide: NgpAccordionPanel, useExisting: NgpAccordionPanelDirective }],
+  providers: [{ provide: NgpAccordionPanelToken, useExisting: NgpAccordionPanelDirective }],
   hostDirectives: [NgpAccordionStateDirective],
 })
 export class NgpAccordionPanelDirective {
   /**
    * Access the accordion the panel belongs to.
    */
-  private readonly accordion = inject(NgpAccordion);
+  private readonly accordion = injectAccordion();
 
   /**
    * Determines whether the panel should be expanded.

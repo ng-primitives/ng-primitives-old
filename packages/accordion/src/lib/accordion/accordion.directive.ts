@@ -1,17 +1,24 @@
 import { Directive, HostBinding, Input, booleanAttribute, signal } from '@angular/core';
-import { NgpAccordion } from './accordion.token';
+import { injectAccordionConfig } from '../providers/accordion.config';
+import { NgpAccordionToken } from './accordion.token';
 
 @Directive({
   selector: '[ngpAccordion]',
   standalone: true,
-  providers: [{ provide: NgpAccordion, useExisting: NgpAccordionDirective }],
+  providers: [{ provide: NgpAccordionToken, useExisting: NgpAccordionDirective }],
 })
 export class NgpAccordionDirective {
+  /**
+   * Access the global accordion configuration.
+   */
+  private readonly config = injectAccordionConfig();
+
   /**
    * Determines whether multiple panels can be open simultaneously.
    * @default false
    */
-  @Input({ alias: 'ngpAccordionMultiple', transform: booleanAttribute }) multiple = false;
+  @Input({ alias: 'ngpAccordionMultiple', transform: booleanAttribute }) multiple =
+    this.config.multiple;
 
   /**
    * The orientation of the accordion.
@@ -19,7 +26,7 @@ export class NgpAccordionDirective {
    */
   @HostBinding('attr.data-orientation')
   @Input({ alias: 'ngpAccordionOrientation' })
-  orientation: 'horizontal' | 'vertical' = 'vertical';
+  orientation: 'horizontal' | 'vertical' = this.config.orientation;
 
   /**
    * Determines whether the accordion should be disabled.
