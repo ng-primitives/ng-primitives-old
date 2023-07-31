@@ -1,8 +1,10 @@
 import { Directive, HostBinding } from '@angular/core';
+import { NgpOverlayContentToken } from './overlay-content.token';
 
 @Directive({
   selector: '[ngpOverlayContent]',
   standalone: true,
+  providers: [{ provide: NgpOverlayContentToken, useExisting: NgpOverlayContentDirective }],
 })
 export class NgpOverlayContentDirective {
   /**

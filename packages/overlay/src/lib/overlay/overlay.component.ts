@@ -1,7 +1,9 @@
 /* eslint-disable @angular-eslint/directive-selector */
 import { Component, ContentChild, TemplateRef, ViewChild } from '@angular/core';
-import { NgpOverlayArrowDirective } from '../overlay-arrow/overlay-arrow.directive';
-import { NgpOverlayContentDirective } from '../overlay-content/overlay-content.directive';
+import type { NgpOverlayArrowDirective } from '../overlay-arrow/overlay-arrow.directive';
+import { NgpOverlayArrowToken } from '../overlay-arrow/overlay-arrow.token';
+import type { NgpOverlayContentDirective } from '../overlay-content/overlay-content.directive';
+import { NgpOverlayContentToken } from '../overlay-content/overlay-content.token';
 
 @Component({
   selector: 'ngp-overlay',
@@ -16,18 +18,18 @@ export class NgpOverlayComponent {
   /**
    * Access the overlay element
    */
-  @ViewChild('content', { static: true }) overlayContent!: TemplateRef<void>;
+  @ViewChild('content', { static: true }) templateRef!: TemplateRef<void>;
 
   /**
    * Find the content directive
    */
-  @ContentChild(NgpOverlayContentDirective, { descendants: true })
+  @ContentChild(NgpOverlayContentToken, { descendants: true })
   content?: NgpOverlayContentDirective;
 
   /**
    * Find the tooltip arrow
    */
-  @ContentChild(NgpOverlayArrowDirective, { descendants: true })
+  @ContentChild(NgpOverlayArrowToken, { descendants: true })
   arrow?: NgpOverlayArrowDirective;
 
   /**

@@ -139,7 +139,7 @@ export class NgpOverlayTriggerDirective {
       this.injector,
     );
 
-    const templatePortal = new TemplatePortal(this.overlay.overlayContent, this.viewContainer);
+    const templatePortal = new TemplatePortal(this.overlay.templateRef, this.viewContainer);
 
     this.viewRef = domPortal.attach(templatePortal);
     this.viewRef.detectChanges();
@@ -157,12 +157,12 @@ export class NgpOverlayTriggerDirective {
 
     const middleware: Middleware[] = [];
 
-    if (this.shift) {
-      middleware.push(shift());
-    }
-
     if (this.offset) {
       middleware.push(offset(this.offset));
+    }
+
+    if (this.shift) {
+      middleware.push(shift());
     }
 
     if (this.flip) {
@@ -180,12 +180,13 @@ export class NgpOverlayTriggerDirective {
         middleware,
       });
 
-      this.overlay.setPosition(position.x, position.y);
+      this.overlay.content?.setPosition(position.x, position.y);
 
       if (position.middlewareData.arrow) {
         this.overlay.arrow?.setPosition(
-          position.middlewareData.arrow.x!,
-          position.middlewareData.arrow.y!,
+          this.placement,
+          position.middlewareData.arrow.x,
+          position.middlewareData.arrow.y,
         );
       }
     });

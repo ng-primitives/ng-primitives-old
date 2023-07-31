@@ -13,6 +13,11 @@ import {
   NgpTabPanelDirective,
   NgpTabsetDirective,
 } from '@ng-primitives/tabs';
+import {
+  NgpTooltipArrowDirective,
+  NgpTooltipDirective,
+  NgpTooltipTriggerDirective,
+} from '@ng-primitives/tooltip';
 
 @Component({
   standalone: true,
@@ -28,6 +33,11 @@ import {
     NgpOverlayArrowDirective,
     NgpOverlayTriggerDirective,
     NgpOverlayContentDirective,
+
+    // Tooltip
+    NgpTooltipDirective,
+    NgpTooltipTriggerDirective,
+    NgpTooltipArrowDirective,
   ],
   selector: 'ng-primitives-root',
   templateUrl: './app.component.html',

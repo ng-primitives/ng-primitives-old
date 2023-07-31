@@ -1,3 +1,14 @@
+<div style="padding: 2rem">
+  <button [ngpTooltipTrigger]="tooltip">Open Tooltip</button>
+</div>
+
+<ng-template #tooltip>
+  <div ngpTooltip class="tooltip">
+    <div ngpTooltipArrow class="tooltip-arrow"></div>
+    Hello World!
+  </div>
+</ng-template>
+
 <!-- Overlay -->
 <div style="padding: 2rem">
   <button
