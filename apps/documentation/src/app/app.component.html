@@ -1,4 +1,4 @@
-<div style="padding: 2rem">
+<!-- <div style="padding: 2rem">
   <button [ngpTooltipTrigger]="tooltip">Open Tooltip</button>
 </div>
 
@@ -7,7 +7,7 @@
     <div ngpTooltipArrow class="tooltip-arrow"></div>
     Hello World!
   </div>
-</ng-template>
+</ng-template> -->
 
 <!-- Overlay -->
 <div style="padding: 2rem">
@@ -21,12 +21,12 @@
   </button>
 </div>
 
-<ngp-overlay #overlayRef>
-  <div ngpOverlayContent class="tooltip">
+<ng-template #overlayRef>
+  <div ngpOverlay class="tooltip">
     <div ngpOverlayArrow class="tooltip-arrow"></div>
     Hello World!
   </div>
-</ngp-overlay>
+</ng-template>
 
 <!-- Tabset -->
 <div ngpTabset>

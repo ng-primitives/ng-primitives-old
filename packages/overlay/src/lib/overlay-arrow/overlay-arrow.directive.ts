@@ -1,5 +1,6 @@
-import { Directive, ElementRef, inject } from '@angular/core';
+import { Directive, ElementRef, OnDestroy, OnInit, inject } from '@angular/core';
 import { Placement } from '@floating-ui/dom';
+import { injectOverlayTrigger } from '../overlay-trigger/overlay-trigger.token';
 import { NgpOverlayArrowToken } from './overlay-arrow.token';
 
 @Directive({
@@ -7,11 +8,32 @@ import { NgpOverlayArrowToken } from './overlay-arrow.token';
   standalone: true,
   providers: [{ provide: NgpOverlayArrowToken, useExisting: NgpOverlayArrowDirective }],
 })
-export class NgpOverlayArrowDirective {
+export class NgpOverlayArrowDirective implements OnInit, OnDestroy {
   /**
    * Access the arrow element
    */
   readonly elementRef = inject(ElementRef<HTMLElement>);
+
+  /**
+   * Access the overlay trigger
+   */
+  private readonly overlayTrigger = injectOverlayTrigger();
+
+  /**
+   * Register the arrow on init
+   * @internal
+   */
+  ngOnInit(): void {
+    this.overlayTrigger.registerArrow(this);
+  }
+
+  /**
+   * Unregister the arrow on destroy
+   * @internal
+   */
+  ngOnDestroy(): void {
+    this.overlayTrigger.unregisterArrow();
+  }
 
   /**
    * Define the position of the arrow.

@@ -7,6 +7,7 @@ import {
   EmbeddedViewRef,
   Injector,
   Input,
+  TemplateRef,
   ViewContainerRef,
   booleanAttribute,
   inject,
@@ -22,7 +23,9 @@ import {
   offset,
   shift,
 } from '@floating-ui/dom';
-import { NgpOverlayComponent } from '../overlay/overlay.component';
+import type { NgpOverlayArrowDirective } from '../overlay-arrow/overlay-arrow.directive';
+import type { NgpOverlayDirective } from '../overlay/overlay.directive';
+import { NgpOverlayTriggerToken } from './overlay-trigger.token';
 
 @Directive({
   selector: '[ngpOverlayTrigger]',
@@ -58,7 +61,7 @@ export class NgpOverlayTriggerDirective {
   /**
    * Define the overlay to display when the trigger is activated.
    */
-  @Input({ alias: 'ngpOverlayTrigger', required: true }) overlay!: NgpOverlayComponent;
+  @Input({ alias: 'ngpOverlayTrigger', required: true }) templateRef!: TemplateRef<void>;
 
   /**
    * Define if the trigger should be disabled.
@@ -109,6 +112,16 @@ export class NgpOverlayTriggerDirective {
   @Input('ngpOverlayContainer') container: HTMLElement = document.body;
 
   /**
+   * Store the overlay content instance.
+   */
+  private overlay: NgpOverlayDirective | null = null;
+
+  /**
+   * Store the overlay arrow instance.
+   */
+  private arrow: NgpOverlayArrowDirective | null = null;
+
+  /**
    * Store the view ref
    */
   private viewRef: EmbeddedViewRef<void> | null = null;
@@ -139,7 +152,20 @@ export class NgpOverlayTriggerDirective {
       this.injector,
     );
 
-    const templatePortal = new TemplatePortal(this.overlay.templateRef, this.viewContainer);
+    const templatePortal = new TemplatePortal(
+      this.templateRef,
+      this.viewContainer,
+      undefined,
+      Injector.create({
+        parent: this.injector,
+        providers: [
+          {
+            provide: NgpOverlayTriggerToken,
+            useValue: this,
+          },
+        ],
+      }),
+    );
 
     this.viewRef = domPortal.attach(templatePortal);
     this.viewRef.detectChanges();
@@ -170,8 +196,8 @@ export class NgpOverlayTriggerDirective {
     }
 
     // if there is an arrow defined, we need to add the arrow middleware
-    if (this.overlay.arrow) {
-      middleware.push(arrow({ element: this.overlay.arrow.elementRef.nativeElement }));
+    if (this.arrow) {
+      middleware.push(arrow({ element: this.arrow.elementRef.nativeElement }));
     }
 
     this.dispose = autoUpdate(this.trigger.nativeElement, overlayElement, async () => {
@@ -180,10 +206,10 @@ export class NgpOverlayTriggerDirective {
         middleware,
       });
 
-      this.overlay.content?.setPosition(position.x, position.y);
+      this.overlay?.setPosition(position.x, position.y);
 
       if (position.middlewareData.arrow) {
-        this.overlay.arrow?.setPosition(
+        this.arrow?.setPosition(
           this.placement,
           position.middlewareData.arrow.x,
           position.middlewareData.arrow.y,
@@ -233,5 +259,39 @@ export class NgpOverlayTriggerDirective {
     }
 
     this.destroyOverlay();
+  }
+
+  /**
+   * Register the overlay.
+   * @param overlay The overlay to register.
+   * @internal
+   */
+  registerOverlay(overlay: NgpOverlayDirective): void {
+    this.overlay = overlay;
+  }
+
+  /**
+   * Unregister the overlay.
+   * @internal
+   */
+  unregisterOverlay(): void {
+    this.overlay = null;
+  }
+
+  /**
+   * Register the arrow.
+   * @param arrow The arrow to register.
+   * @internal
+   */
+  registerArrow(arrow: NgpOverlayArrowDirective): void {
+    this.arrow = arrow;
+  }
+
+  /**
+   * Unregister the arrow.
+   * @internal
+   */
+  unregisterArrow(): void {
+    this.arrow = null;
   }
 }

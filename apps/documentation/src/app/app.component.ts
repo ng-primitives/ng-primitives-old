@@ -5,6 +5,7 @@ import {
   NgpOverlayArrowDirective,
   NgpOverlayComponent,
   NgpOverlayContentDirective,
+  NgpOverlayDirective,
   NgpOverlayTriggerDirective,
 } from '@ng-primitives/overlay';
 import {
@@ -30,6 +31,7 @@ import {
 
     // Overlay
     NgpOverlayComponent,
+    NgpOverlayDirective,
     NgpOverlayArrowDirective,
     NgpOverlayTriggerDirective,
     NgpOverlayContentDirective,
