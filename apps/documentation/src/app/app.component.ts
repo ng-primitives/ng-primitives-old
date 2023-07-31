@@ -18,6 +18,7 @@ import {
   NgpTooltipDirective,
   NgpTooltipTriggerDirective,
 } from '@ng-primitives/tooltip';
+import { NgpVisuallyHiddenDirective } from '@ng-primitives/visually-hidden';
 
 @Component({
   standalone: true,
@@ -41,6 +42,9 @@ import {
     // Progress
     NgpProgressDirective,
     NgpProgressIndicatorDirective,
+
+    // Visually Hidden
+    NgpVisuallyHiddenDirective,
   ],
   selector: 'ng-primitives-root',
   templateUrl: './app.component.html',

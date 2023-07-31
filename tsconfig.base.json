@@ -21,6 +21,7 @@
       "@ng-primitives/roving-focus": ["packages/roving-focus/src/index.ts"],
       "@ng-primitives/tabs": ["packages/tabs/src/index.ts"],
       "@ng-primitives/tooltip": ["packages/tooltip/src/index.ts"],
+      "@ng-primitives/visually-hidden": ["packages/visually-hidden/src/index.ts"],
       "@ng-primitives/workspace-plugins": ["packages/workspace-plugins/src/index.ts"]
     }
   },
