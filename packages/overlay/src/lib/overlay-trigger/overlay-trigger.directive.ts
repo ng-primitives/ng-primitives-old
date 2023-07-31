@@ -73,13 +73,13 @@ export class NgpOverlayTriggerDirective {
    * Define the placement of the overlay relative to the trigger.
    * @default 'bottom'
    */
-  @Input('ngpOverlayPlacement') placement: Placement = 'bottom';
+  @Input('ngpOverlayPlacement') placement: Placement = 'top';
 
   /**
    * Define the offset of the overlay relative to the trigger.
-   * @default 0
+   * @default 4
    */
-  @Input({ alias: 'ngpOverlayOffset', transform: numberAttribute }) offset: number = 0;
+  @Input({ alias: 'ngpOverlayOffset', transform: numberAttribute }) offset: number = 4;
 
   /**
    * Define the delay before the overlay is displayed.
@@ -169,6 +169,8 @@ export class NgpOverlayTriggerDirective {
 
     this.viewRef = domPortal.attach(templatePortal);
     this.viewRef.detectChanges();
+
+    this.updateOverlayPosition();
   }
 
   /**
@@ -232,7 +234,7 @@ export class NgpOverlayTriggerDirective {
    * Show the overlay.
    */
   show(): void {
-    if (this.disabled) {
+    if (this.disabled || this.viewRef) {
       return;
     }
 
@@ -241,24 +243,19 @@ export class NgpOverlayTriggerDirective {
       this.hideDelayTimeout = null;
     }
 
-    this.createOverlay();
-    this.updateOverlayPosition();
+    this.showDelayTimeout = window.setTimeout(() => this.createOverlay(), this.showDelay);
   }
 
   /**
    * Hide the overlay.
    */
   hide(): void {
-    if (this.disabled) {
-      return;
-    }
-
     if (this.showDelayTimeout) {
       clearTimeout(this.showDelayTimeout);
       this.showDelayTimeout = null;
     }
 
-    this.destroyOverlay();
+    this.hideDelayTimeout = window.setTimeout(() => this.destroyOverlay(), this.hideDelay);
   }
 
   /**

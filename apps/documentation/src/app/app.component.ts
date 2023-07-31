@@ -3,8 +3,6 @@ import { provideIcons } from '@ng-icons/core';
 import { lucideInfo, lucideSearch } from '@ng-icons/lucide';
 import {
   NgpOverlayArrowDirective,
-  NgpOverlayComponent,
-  NgpOverlayContentDirective,
   NgpOverlayDirective,
   NgpOverlayTriggerDirective,
 } from '@ng-primitives/overlay';
@@ -30,11 +28,9 @@ import {
     NgpTabPanelDirective,
 
     // Overlay
-    NgpOverlayComponent,
     NgpOverlayDirective,
     NgpOverlayArrowDirective,
     NgpOverlayTriggerDirective,
-    NgpOverlayContentDirective,
 
     // Tooltip
     NgpTooltipDirective,
