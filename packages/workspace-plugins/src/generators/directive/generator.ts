@@ -58,7 +58,10 @@ function prefixDirectiveClass(tree: Tree, options: DirectiveGeneratorSchema): vo
   // update the files renaming the class to have an Ngp prefix
   for (const file of filesToUpdate) {
     const content = tree.read(file).toString();
-    const updatedContent = content.replace(className, `Ngp${className}`);
+
+    // replace all occurrences of the class name
+    const updatedContent = content.replace(new RegExp(className, 'g'), 'Ngp' + className);
+
     tree.write(file, updatedContent);
   }
 }
