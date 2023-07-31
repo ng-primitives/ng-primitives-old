@@ -2,6 +2,13 @@ import { Component } from '@angular/core';
 import { provideIcons } from '@ng-icons/core';
 import { lucideInfo, lucideSearch } from '@ng-icons/lucide';
 import {
+  NgpAccordionContentDirective,
+  NgpAccordionDirective,
+  NgpAccordionHeaderDirective,
+  NgpAccordionPanelDirective,
+  NgpAccordionTriggerDirective,
+} from '@ng-primitives/accordion';
+import {
   NgpOverlayArrowDirective,
   NgpOverlayDirective,
   NgpOverlayTriggerDirective,
@@ -45,6 +52,13 @@ import { NgpVisuallyHiddenDirective } from '@ng-primitives/visually-hidden';
 
     // Visually Hidden
     NgpVisuallyHiddenDirective,
+
+    // Accordion
+    NgpAccordionDirective,
+    NgpAccordionPanelDirective,
+    NgpAccordionContentDirective,
+    NgpAccordionHeaderDirective,
+    NgpAccordionTriggerDirective,
   ],
   selector: 'ng-primitives-root',
   templateUrl: './app.component.html',

@@ -25,7 +25,7 @@ export class NgpAccordionStateDirective {
    * Determine the expanded state of the panel.
    * @internal
    */
-  readonly state = computed(() => (this.panel.isExpanded() ? 'expanded' : 'collapsed'));
+  readonly state = computed(() => (this.panel.isExpanded() ? 'open' : 'closed'));
 
   /**
    * Determine the disabled state of the panel.
