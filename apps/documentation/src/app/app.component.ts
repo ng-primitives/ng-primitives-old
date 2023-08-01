@@ -25,6 +25,7 @@ import {
   NgpTabPanelDirective,
   NgpTabsetDirective,
 } from '@ng-primitives/ng-primitives/tabs';
+import { NgpToggleDirective } from '@ng-primitives/ng-primitives/toggle';
 import {
   NgpTooltipArrowDirective,
   NgpTooltipDirective,
@@ -71,6 +72,9 @@ import { NgpVisuallyHiddenDirective } from '@ng-primitives/ng-primitives/visuall
 
     // Separator
     NgpSeparatorDirective,
+
+    // Toggle
+    NgpToggleDirective,
   ],
   selector: 'ng-primitives-root',
   templateUrl: './app.component.html',
