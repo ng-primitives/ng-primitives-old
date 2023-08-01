@@ -1,7 +1,6 @@
 import {
   AfterViewInit,
   ChangeDetectorRef,
-  DestroyRef,
   Directive,
   ElementRef,
   HostBinding,
@@ -25,11 +24,6 @@ export class NgpAccordionContentDirective implements AfterViewInit {
    * Access the element ref.
    */
   private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
-
-  /**
-   * Access the destroy ref.
-   */
-  private readonly destroyRef = inject(DestroyRef);
 
   /**
    * Access the change detector ref.
