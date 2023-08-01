@@ -17,6 +17,7 @@ import {
   NgpProgressDirective,
   NgpProgressIndicatorDirective,
 } from '@ng-primitives/ng-primitives/progress';
+import { NgpSwitchDirective, NgpSwitchThumbDirective } from '@ng-primitives/ng-primitives/switch';
 import {
   NgpTabButtonDirective,
   NgpTabListDirective,
@@ -62,6 +63,10 @@ import { NgpVisuallyHiddenDirective } from '@ng-primitives/ng-primitives/visuall
     NgpAccordionContentDirective,
     NgpAccordionHeaderDirective,
     NgpAccordionTriggerDirective,
+
+    // Switch
+    NgpSwitchDirective,
+    NgpSwitchThumbDirective,
   ],
   selector: 'ng-primitives-root',
   templateUrl: './app.component.html',

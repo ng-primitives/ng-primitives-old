@@ -25,7 +25,7 @@ function getSourceRoot(tree: Tree, options: DirectiveGeneratorSchema): string {
   return joinPathFragments(
     getWorkspaceLayout(tree).libsDir,
     'ng-primitives',
-    names(options.name).fileName,
+    names(options.entrypoint).fileName,
     'src',
   );
 }
@@ -36,11 +36,17 @@ function addExport(tree: Tree, options: DirectiveGeneratorSchema): void {
   // get the path to the index.ts file
   const indexPath = joinPathFragments(getSourceRoot(tree, options), 'index.ts');
 
+  // get the content of the index.ts file
+  const content = tree.read(indexPath, 'utf-8');
+
+  // split the content into lines - removing any empty lines
+  const lines = content.split('\n').filter(line => line.trim().length > 0);
+
   // add the export
-  tree.write(
-    indexPath,
-    `${tree.read(indexPath)}\nexport * from './${options.name}/${options.name}.directive';`,
-  );
+  lines.push(`export * from './${options.name}/${options.name}.directive';`);
+
+  // write the new content back to the index.ts file
+  tree.write(indexPath, lines.join('\n'));
 }
 function prefixDirectiveClass(tree: Tree, options: DirectiveGeneratorSchema): void {
   // get the path the to directive directory
