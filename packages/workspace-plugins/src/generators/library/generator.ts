@@ -13,7 +13,6 @@ export async function libraryGenerator(tree: Tree, options: LibraryGeneratorSche
   if (!options.skipDirective) {
     await directiveGenerator(tree, {
       name: options.name,
-      project: options.name,
     });
   }
 
