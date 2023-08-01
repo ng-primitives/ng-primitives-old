@@ -7,25 +7,28 @@ import {
   NgpAccordionHeaderDirective,
   NgpAccordionPanelDirective,
   NgpAccordionTriggerDirective,
-} from '@ng-primitives/accordion';
+} from '@ng-primitives/ng-primitives/accordion';
 import {
   NgpOverlayArrowDirective,
   NgpOverlayDirective,
   NgpOverlayTriggerDirective,
-} from '@ng-primitives/overlay';
-import { NgpProgressDirective, NgpProgressIndicatorDirective } from '@ng-primitives/progress';
+} from '@ng-primitives/ng-primitives/overlay';
+import {
+  NgpProgressDirective,
+  NgpProgressIndicatorDirective,
+} from '@ng-primitives/ng-primitives/progress';
 import {
   NgpTabButtonDirective,
   NgpTabListDirective,
   NgpTabPanelDirective,
   NgpTabsetDirective,
-} from '@ng-primitives/tabs';
+} from '@ng-primitives/ng-primitives/tabs';
 import {
   NgpTooltipArrowDirective,
   NgpTooltipDirective,
   NgpTooltipTriggerDirective,
-} from '@ng-primitives/tooltip';
-import { NgpVisuallyHiddenDirective } from '@ng-primitives/visually-hidden';
+} from '@ng-primitives/ng-primitives/tooltip';
+import { NgpVisuallyHiddenDirective } from '@ng-primitives/ng-primitives/visually-hidden';
 
 @Component({
   standalone: true,
