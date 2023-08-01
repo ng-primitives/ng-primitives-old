@@ -39,7 +39,7 @@ function addExport(tree: Tree, options: DirectiveGeneratorSchema): void {
   // add the export
   tree.write(
     indexPath,
-    `${tree.read(indexPath)}\nexport * from './lib/${options.name}/${options.name}.directive';`,
+    `${tree.read(indexPath)}\nexport * from './${options.name}/${options.name}.directive';`,
   );
 }
 function prefixDirectiveClass(tree: Tree, options: DirectiveGeneratorSchema): void {

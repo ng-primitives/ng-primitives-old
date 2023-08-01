@@ -10,6 +10,9 @@ export async function libraryGenerator(tree: Tree, options: LibraryGeneratorSche
     skipModule: true,
   });
 
+  // create the index.ts file
+  tree.write(`packages/ng-primitives/${options.name}/src/index.ts`, '');
+
   if (!options.skipDirective) {
     await directiveGenerator(tree, {
       name: options.name,

@@ -23,6 +23,7 @@
       "@ng-primitives/ng-primitives/roving-focus": [
         "packages/ng-primitives/roving-focus/src/index.ts"
       ],
+      "@ng-primitives/ng-primitives/switch": ["packages/ng-primitives/switch/src/index.ts"],
       "@ng-primitives/ng-primitives/tabs": ["packages/ng-primitives/tabs/src/index.ts"],
       "@ng-primitives/ng-primitives/tooltip": ["packages/ng-primitives/tooltip/src/index.ts"],
       "@ng-primitives/ng-primitives/visually-hidden": [

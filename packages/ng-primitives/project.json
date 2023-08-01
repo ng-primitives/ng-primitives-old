@@ -58,7 +58,9 @@
           "packages/ng-primitives/tooltip/**/*.ts",
           "packages/ng-primitives/tooltip/**/*.html",
           "packages/ng-primitives/visually-hidden/**/*.ts",
-          "packages/ng-primitives/visually-hidden/**/*.html"
+          "packages/ng-primitives/visually-hidden/**/*.html",
+          "packages/ng-primitives/switch/**/*.ts",
+          "packages/ng-primitives/switch/**/*.html"
         ]
       }
     }
