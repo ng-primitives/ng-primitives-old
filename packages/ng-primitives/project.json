@@ -60,7 +60,9 @@
           "packages/ng-primitives/visually-hidden/**/*.ts",
           "packages/ng-primitives/visually-hidden/**/*.html",
           "packages/ng-primitives/switch/**/*.ts",
-          "packages/ng-primitives/switch/**/*.html"
+          "packages/ng-primitives/switch/**/*.html",
+          "packages/ng-primitives/separator/**/*.ts",
+          "packages/ng-primitives/separator/**/*.html"
         ]
       }
     }
