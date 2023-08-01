@@ -12,14 +12,6 @@
         "index": 0
       },
       "x-prompt": "What name would you like to use?"
-    },
-    "project": {
-      "type": "string",
-      "description": "",
-      "$default": {
-        "$source": "projectName"
-      },
-      "x-prompt": "What project would you like to add this to?"
     }
   },
   "required": ["name", "project"]
