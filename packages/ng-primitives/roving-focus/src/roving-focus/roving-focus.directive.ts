@@ -75,12 +75,12 @@ export class NgpRovingFocusDirective implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     // update the key manager orientation
-    if (changes['orientation']) {
+    if ('orientation' in changes) {
       this.setOrientation(this.orientation);
     }
 
     // update the key manager wrap
-    if (changes['wrap']) {
+    if ('wrap' in changes) {
       this.keyManager.withWrap(this.wrap);
     }
   }
