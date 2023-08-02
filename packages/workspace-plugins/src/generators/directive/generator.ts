@@ -1,5 +1,6 @@
 import { directiveGenerator as angularDirectiveGenerator } from '@nx/angular/generators';
-import { formatFiles, getWorkspaceLayout, joinPathFragments, names, Tree } from '@nx/devkit';
+import { formatFiles, joinPathFragments, names, Tree } from '@nx/devkit';
+import { addExportToIndex, getSourceRoot } from '../../utils';
 import { DirectiveGeneratorSchema } from './schema';
 
 export async function directiveGenerator(tree: Tree, options: DirectiveGeneratorSchema) {
@@ -10,47 +11,26 @@ export async function directiveGenerator(tree: Tree, options: DirectiveGenerator
     export: false, // broken
     prefix: 'ngp',
     standalone: true,
-    path: getSourceRoot(tree, options),
+    path: getSourceRoot(tree, options.entrypoint),
   });
 
   // prefix directive class
   prefixDirectiveClass(tree, options);
 
-  addExport(tree, options);
+  addExportToIndex(
+    tree,
+    options.entrypoint,
+    `export * from './${options.name}/${options.name}.directive';`,
+  );
 
   await formatFiles(tree);
 }
 
-function getSourceRoot(tree: Tree, options: DirectiveGeneratorSchema): string {
-  return joinPathFragments(
-    getWorkspaceLayout(tree).libsDir,
-    'ng-primitives',
-    names(options.entrypoint).fileName,
-    'src',
-  );
-}
-
 export default directiveGenerator;
 
-function addExport(tree: Tree, options: DirectiveGeneratorSchema): void {
-  // get the path to the index.ts file
-  const indexPath = joinPathFragments(getSourceRoot(tree, options), 'index.ts');
-
-  // get the content of the index.ts file
-  const content = tree.read(indexPath, 'utf-8');
-
-  // split the content into lines - removing any empty lines
-  const lines = content.split('\n').filter(line => line.trim().length > 0);
-
-  // add the export
-  lines.push(`export * from './${options.name}/${options.name}.directive';`);
-
-  // write the new content back to the index.ts file
-  tree.write(indexPath, lines.join('\n'));
-}
 function prefixDirectiveClass(tree: Tree, options: DirectiveGeneratorSchema): void {
   // get the path the to directive directory
-  const directory = getSourceRoot(tree, options);
+  const directory = getSourceRoot(tree, options.entrypoint);
 
   // the directive class file and spec file should be updated
   const filesToUpdate = [

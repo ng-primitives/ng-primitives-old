@@ -9,6 +9,11 @@
       "factory": "./src/generators/directive/generator",
       "schema": "./src/generators/directive/schema.json",
       "description": "Create a new directive"
+    },
+    "config": {
+      "factory": "./src/generators/config/generator",
+      "schema": "./src/generators/config/schema.json",
+      "description": "Create a configuration provider."
     }
   }
 }
