@@ -14,6 +14,11 @@
       "factory": "./src/generators/config/generator",
       "schema": "./src/generators/config/schema.json",
       "description": "Create a configuration provider."
+    },
+    "token": {
+      "factory": "./src/generators/token/generator",
+      "schema": "./src/generators/token/schema.json",
+      "description": "Generate a token for a directive to allow it to be injected into children"
     }
   }
 }

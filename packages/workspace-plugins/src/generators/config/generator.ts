@@ -1,22 +1,10 @@
-import {
-  formatFiles,
-  generateFiles,
-  getWorkspaceLayout,
-  joinPathFragments,
-  names,
-  Tree,
-} from '@nx/devkit';
+import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
 import * as path from 'path';
-import { addExportToIndex } from '../../utils';
+import { addExportToIndex, getSourceRoot } from '../../utils';
 import { ConfigGeneratorSchema } from './schema';
 
 export async function configGenerator(tree: Tree, options: ConfigGeneratorSchema) {
-  const sourceRoot = joinPathFragments(
-    getWorkspaceLayout(tree).libsDir,
-    'ng-primitives',
-    options.entrypoint,
-    'src',
-  );
+  const sourceRoot = getSourceRoot(tree, options.entrypoint);
   generateFiles(tree, path.join(__dirname, 'files'), sourceRoot, {
     ...options,
     ...names(options.entrypoint),
