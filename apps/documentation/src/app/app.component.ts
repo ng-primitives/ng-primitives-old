@@ -9,6 +9,11 @@ import {
   NgpAccordionTriggerDirective,
 } from '@ng-primitives/ng-primitives/accordion';
 import {
+  NgpAvatarDirective,
+  NgpAvatarFallbackDirective,
+  NgpAvatarImageDirective,
+} from '@ng-primitives/ng-primitives/avatar';
+import {
   NgpOverlayArrowDirective,
   NgpOverlayDirective,
   NgpOverlayTriggerDirective,
@@ -75,6 +80,11 @@ import { NgpVisuallyHiddenDirective } from '@ng-primitives/ng-primitives/visuall
 
     // Toggle
     NgpToggleDirective,
+
+    // Avatar
+    NgpAvatarDirective,
+    NgpAvatarImageDirective,
+    NgpAvatarFallbackDirective,
   ],
   selector: 'ng-primitives-root',
   templateUrl: './app.component.html',

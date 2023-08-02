@@ -64,7 +64,9 @@
           "packages/ng-primitives/separator/**/*.ts",
           "packages/ng-primitives/separator/**/*.html",
           "packages/ng-primitives/toggle/**/*.ts",
-          "packages/ng-primitives/toggle/**/*.html"
+          "packages/ng-primitives/toggle/**/*.html",
+          "packages/ng-primitives/avatar/**/*.ts",
+          "packages/ng-primitives/avatar/**/*.html"
         ]
       }
     }
