@@ -4,3 +4,4 @@ export * from './accordion-panel/accordion-panel.directive';
 export * from './accordion-trigger/accordion-trigger.directive';
 export * from './accordion/accordion.directive';
 export * from './common/accordion-state.directive';
+export * from './config/accordion.config';

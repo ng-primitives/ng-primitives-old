@@ -1,5 +1,5 @@
 import { Directive, HostBinding, Input, booleanAttribute, signal } from '@angular/core';
-import { injectAccordionConfig } from '../providers/accordion.config';
+import { injectAccordionConfig } from '../config/accordion.config';
 import { NgpAccordionToken } from './accordion.token';
 
 @Directive({

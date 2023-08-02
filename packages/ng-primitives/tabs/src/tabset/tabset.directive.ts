@@ -8,7 +8,7 @@ import {
   QueryList,
   booleanAttribute,
 } from '@angular/core';
-import { injectTabsetConfig } from '../providers/tabset.config';
+import { injectTabsetConfig } from '../config/tabset.config';
 import { NgpTabPanelDirective } from '../tab-panel/tab-panel.directive';
 import { NgpTabsetToken } from './tabset.token';
 

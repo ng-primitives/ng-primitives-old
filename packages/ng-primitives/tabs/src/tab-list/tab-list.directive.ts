@@ -3,7 +3,7 @@ import {
   NgpRovingFocusDirective,
   injectRovingFocusGroup,
 } from '@ng-primitives/ng-primitives/roving-focus';
-import { injectTabsetConfig } from '../providers/tabset.config';
+import { injectTabsetConfig } from '../config/tabset.config';
 import { injectTabset } from '../tabset/tabset.token';
 
 @Directive({

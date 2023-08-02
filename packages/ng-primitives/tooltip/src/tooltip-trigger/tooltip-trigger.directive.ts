@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { Placement } from '@floating-ui/dom';
 import { NgpOverlayTriggerDirective } from '@ng-primitives/ng-primitives/overlay';
-import { injectTooltipConfig } from '../providers/tooltip.config';
+import { injectTooltipConfig } from '../config/tooltip.config';
 import { NgpTooltipTriggerToken } from './tooltip-trigger.token';
 
 @Directive({
