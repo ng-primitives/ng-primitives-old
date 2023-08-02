@@ -4,7 +4,6 @@ export interface Ngp<%= className %>Config {
 }
 
 export const default<%= className %>Config: Ngp<%= className %>Config = {
-  delay: 0,
 };
 
 export const Ngp<%= className %>ConfigToken = new InjectionToken<Ngp<%= className %>Config>('Ngp<%= className %>ConfigToken');
