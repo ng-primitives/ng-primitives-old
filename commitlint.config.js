@@ -62,6 +62,11 @@ module.exports = {
             title: 'Reverts',
             emoji: '🗑',
           },
+          release: {
+            description: 'Create a release related commit',
+            title: 'Release',
+            emoji: '🚀',
+          },
         },
       },
       scope: {
