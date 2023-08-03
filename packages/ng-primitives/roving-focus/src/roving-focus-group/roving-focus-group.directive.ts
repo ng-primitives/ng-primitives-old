@@ -15,14 +15,14 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter } from 'rxjs';
 import type { NgpRovingFocusItemDirective } from '../roving-focus-item/roving-focus-item.directive';
-import { NgpRovingFocusToken } from './roving-focus.token';
+import { NgpRovingFocusGroupToken } from './roving-focus-group.token';
 
 @Directive({
-  selector: '[ngpRovingFocus]',
+  selector: '[ngpRovingFocusGroup]',
   standalone: true,
-  providers: [{ provide: NgpRovingFocusToken, useExisting: NgpRovingFocusDirective }],
+  providers: [{ provide: NgpRovingFocusGroupToken, useExisting: NgpRovingFocusGroupDirective }],
 })
-export class NgpRovingFocusDirective implements OnInit, OnChanges, OnDestroy {
+export class NgpRovingFocusGroupDirective implements OnInit, OnChanges, OnDestroy {
   /**
    * Access the directionality service.
    */
@@ -49,14 +49,14 @@ export class NgpRovingFocusDirective implements OnInit, OnChanges, OnDestroy {
    * Determine the orientation of the roving focus group.
    * @default vertical
    */
-  @Input({ alias: 'ngpRovingFocusOrientation' }) orientation: 'horizontal' | 'vertical' =
+  @Input({ alias: 'ngpRovingFocusGroupOrientation' }) orientation: 'horizontal' | 'vertical' =
     'vertical';
 
   /**
    * Determine if focus should wrap when the end or beginning is reached.
    * @default true
    */
-  @Input({ alias: 'ngpRovingFocusWrap', transform: booleanAttribute }) wrap: boolean = true;
+  @Input({ alias: 'ngpRovingFocusGroupWrap', transform: booleanAttribute }) wrap: boolean = true;
 
   ngOnInit(): void {
     this.keyManager.withWrap(this.wrap);

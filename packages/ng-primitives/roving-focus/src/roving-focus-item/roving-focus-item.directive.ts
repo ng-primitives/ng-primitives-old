@@ -14,7 +14,7 @@ import {
   numberAttribute,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { injectRovingFocusGroup } from '../roving-focus/roving-focus.token';
+import { injectRovingFocusGroup } from '../roving-focus-group/roving-focus-group.token';
 
 @Directive({
   selector: '[ngpRovingFocusItem]',

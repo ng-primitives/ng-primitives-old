@@ -1,6 +1,6 @@
 import { Directive, Input, OnInit, booleanAttribute } from '@angular/core';
 import {
-  NgpRovingFocusDirective,
+  NgpRovingFocusGroupDirective,
   injectRovingFocusGroup,
 } from '@ng-primitives/ng-primitives/roving-focus';
 import { injectTabsetConfig } from '../config/tabset.config';
@@ -16,8 +16,8 @@ import { injectTabset } from '../tabset/tabset.token';
   },
   hostDirectives: [
     {
-      directive: NgpRovingFocusDirective,
-      inputs: ['ngpRovingFocusWrap: wrap'],
+      directive: NgpRovingFocusGroupDirective,
+      inputs: ['ngpRovingFocusGroupWrap: wrap'],
     },
   ],
 })
