@@ -75,6 +75,7 @@
     "@floating-ui/dom": "^1.4.5",
     "@ng-icons/core": "^25.1.0",
     "@ng-icons/lucide": "^25.1.0",
+    "@ng-icons/radix-icons": "^25.1.0",
     "@nx/devkit": "16.5.5",
     "@swc/helpers": "~0.5.0",
     "rxjs": "~7.8.0",

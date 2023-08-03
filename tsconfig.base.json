@@ -28,6 +28,9 @@
       "@ng-primitives/ng-primitives/switch": ["packages/ng-primitives/switch/src/index.ts"],
       "@ng-primitives/ng-primitives/tabs": ["packages/ng-primitives/tabs/src/index.ts"],
       "@ng-primitives/ng-primitives/toggle": ["packages/ng-primitives/toggle/src/index.ts"],
+      "@ng-primitives/ng-primitives/toggle-group": [
+        "packages/ng-primitives/toggle-group/src/index.ts"
+      ],
       "@ng-primitives/ng-primitives/tooltip": ["packages/ng-primitives/tooltip/src/index.ts"],
       "@ng-primitives/ng-primitives/visually-hidden": [
         "packages/ng-primitives/visually-hidden/src/index.ts"

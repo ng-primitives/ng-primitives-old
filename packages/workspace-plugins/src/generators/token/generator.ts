@@ -1,6 +1,6 @@
 import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
 import * as path from 'path';
-import { getSourceRoot } from '../../utils';
+import { addExportToIndex, getSourceRoot } from '../../utils';
 import { TokenGeneratorSchema } from './schema';
 
 export async function tokenGenerator(tree: Tree, options: TokenGeneratorSchema) {
@@ -13,6 +13,13 @@ export async function tokenGenerator(tree: Tree, options: TokenGeneratorSchema) 
     ...options,
     ...names(options.directive),
   });
+
+  addExportToIndex(
+    tree,
+    options.entrypoint,
+    `export * from './${options.directive}/${options.directive}.token';`,
+  );
+
   await formatFiles(tree);
 }
 

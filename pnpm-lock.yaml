@@ -41,6 +41,9 @@ dependencies:
   '@ng-icons/lucide':
     specifier: ^25.1.0
     version: 25.1.0
+  '@ng-icons/radix-icons':
+    specifier: ^25.1.0
+    version: 25.1.0
   '@nx/devkit':
     specifier: 16.5.5
     version: 16.5.5(nx@16.5.5)
@@ -4001,6 +4004,12 @@ packages:
 
   /@ng-icons/lucide@25.1.0:
     resolution: {integrity: sha512-ZA74Mp1l/qRm8ThU3T8gjdXm/gQ2YZ+EviF94wxIZ8c5eA3xQrJihyDETI71Qw29sox7M4SByV9+54HbMNUo5g==}
+    dependencies:
+      tslib: 2.6.0
+    dev: false
+
+  /@ng-icons/radix-icons@25.1.0:
+    resolution: {integrity: sha512-J6FaTyuz5bvtghT6GhnGg+7VUrXuf6UK2vAKDKBs59BYgjM6FZnnlk0iknhfaMztgPj6BJFLitVOLeZCAuigCQ==}
     dependencies:
       tslib: 2.6.0
     dev: false

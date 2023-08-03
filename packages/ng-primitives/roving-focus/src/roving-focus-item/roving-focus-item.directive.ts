@@ -15,10 +15,12 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { injectRovingFocusGroup } from '../roving-focus-group/roving-focus-group.token';
+import { NgpRovingFocusItemToken } from './roving-focus-item.token';
 
 @Directive({
   selector: '[ngpRovingFocusItem]',
   standalone: true,
+  providers: [{ provide: NgpRovingFocusItemToken, useExisting: NgpRovingFocusItemDirective }],
 })
 export class NgpRovingFocusItemDirective implements OnInit, OnDestroy, FocusableOption {
   /**

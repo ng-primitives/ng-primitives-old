@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
-import { provideIcons } from '@ng-icons/core';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { lucideInfo, lucideSearch } from '@ng-icons/lucide';
+import {
+  radixTextAlignCenter,
+  radixTextAlignLeft,
+  radixTextAlignRight,
+} from '@ng-icons/radix-icons';
 import {
   NgpAccordionContentDirective,
   NgpAccordionDirective,
@@ -32,6 +37,10 @@ import {
 } from '@ng-primitives/ng-primitives/tabs';
 import { NgpToggleDirective } from '@ng-primitives/ng-primitives/toggle';
 import {
+  NgpToggleGroupButtonDirective,
+  NgpToggleGroupDirective,
+} from '@ng-primitives/ng-primitives/toggle-group';
+import {
   NgpTooltipArrowDirective,
   NgpTooltipDirective,
   NgpTooltipTriggerDirective,
@@ -41,6 +50,8 @@ import { NgpVisuallyHiddenDirective } from '@ng-primitives/ng-primitives/visuall
 @Component({
   standalone: true,
   imports: [
+    // Icons
+    NgIconComponent,
     // Tabs
     NgpTabsetDirective,
     NgpTabButtonDirective,
@@ -85,11 +96,23 @@ import { NgpVisuallyHiddenDirective } from '@ng-primitives/ng-primitives/visuall
     NgpAvatarDirective,
     NgpAvatarImageDirective,
     NgpAvatarFallbackDirective,
+
+    // Toggle Group
+    NgpToggleGroupDirective,
+    NgpToggleGroupButtonDirective,
   ],
   selector: 'ng-primitives-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  viewProviders: [provideIcons({ lucideSearch, lucideInfo })],
+  viewProviders: [
+    provideIcons({
+      lucideSearch,
+      lucideInfo,
+      radixTextAlignLeft,
+      radixTextAlignCenter,
+      radixTextAlignRight,
+    }),
+  ],
 })
 export class AppComponent {
   progress = 50;
