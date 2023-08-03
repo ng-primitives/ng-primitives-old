@@ -17,10 +17,10 @@ import {
 } from '@ng-primitives/ng-primitives/roving-focus';
 import type { NgpToggleGroupButtonDirective } from '../toggle-group-button/toggle-group-button.directive';
 import { NgpToggleGroupButtonToken } from '../toggle-group-button/toggle-group-button.token';
-import { NgpToggleGroupToken } from './toggle-group.token';
+import { NgpToggleGroupToken } from '../toggle-group/toggle-group.token';
 
 @Directive({
-  selector: '[ngpToggleGroup]',
+  selector: '[ngpToggleGroupMulti]',
   standalone: true,
   hostDirectives: [
     {
@@ -29,8 +29,8 @@ import { NgpToggleGroupToken } from './toggle-group.token';
     },
   ],
   providers: [
-    { provide: NgpToggleGroupToken, useExisting: NgpToggleGroupDirective },
-    { provide: NG_VALUE_ACCESSOR, useExisting: NgpToggleGroupDirective, multi: true },
+    { provide: NgpToggleGroupToken, useExisting: NgpToggleGroupMultiDirective },
+    { provide: NG_VALUE_ACCESSOR, useExisting: NgpToggleGroupMultiDirective, multi: true },
   ],
   host: {
     role: 'group',
@@ -38,7 +38,7 @@ import { NgpToggleGroupToken } from './toggle-group.token';
     '(focusout)': 'onTouched?.()',
   },
 })
-export class NgpToggleGroupDirective
+export class NgpToggleGroupMultiDirective
   implements OnInit, OnChanges, AfterContentInit, ControlValueAccessor
 {
   /**
@@ -49,30 +49,32 @@ export class NgpToggleGroupDirective
   /**
    * The selected toggle button.
    */
-  @Input('ngpToggleGroupValue') value: string | null = null;
+  @Input('ngpToggleGroupMultiValue') value: ReadonlyArray<string> = [];
 
   /**
    * The orientation of the toggle group.
    * @default 'horizontal'
    */
-  @Input('ngpToggleGroupOrientation') orientation: 'horizontal' | 'vertical' = 'horizontal';
+  @Input('ngpToggleGroupMultiOrientation') orientation: 'horizontal' | 'vertical' = 'horizontal';
 
   /**
    * Whether the toggle group is disabled.
    * @default false
    */
-  @Input({ alias: 'ngpToggleGroupDisabled', transform: booleanAttribute }) disabled = false;
+  @Input({ alias: 'ngpToggleGroupMultiDisabled', transform: booleanAttribute }) disabled = false;
 
   /**
    * Whether the toggle group roving focus should wrap.
    * @default true
    */
-  @Input({ alias: 'ngpToggleGroupWrap', transform: booleanAttribute }) wrap = true;
+  @Input({ alias: 'ngpToggleGroupMultiWrap', transform: booleanAttribute }) wrap = true;
 
   /**
    * Event emitted when the selected toggle button changes.
    */
-  @Input('ngpToggleGroupValueChange') readonly valueChange = new EventEmitter<string | null>();
+  @Input('ngpToggleGroupMultiValueChange') readonly valueChange = new EventEmitter<
+    ReadonlyArray<string>
+  >();
 
   /**
    * Access the buttons in the toggle group.
@@ -83,7 +85,7 @@ export class NgpToggleGroupDirective
   /**
    * The value change callback.
    */
-  private onChange?: (value: string | null) => void;
+  private onChange?: (value: ReadonlyArray<string>) => void;
 
   /**
    * The touched callback.
@@ -118,7 +120,7 @@ export class NgpToggleGroupDirective
    * @internal
    */
   isSelected(value: string): boolean {
-    return this.value === value;
+    return this.value.includes(value);
   }
 
   /**
@@ -131,7 +133,10 @@ export class NgpToggleGroupDirective
       return;
     }
 
-    this.value = this.value === value ? null : value;
+    this.value = this.value.includes(value)
+      ? this.value.filter(v => v !== value)
+      : [...this.value, value];
+
     this.valueChange.emit(this.value);
     this.onChange?.(this.value);
   }
@@ -141,7 +146,7 @@ export class NgpToggleGroupDirective
    * @param value The value to select.
    * @internal
    */
-  writeValue(value: string): void {
+  writeValue(value: ReadonlyArray<string>): void {
     this.value = value;
   }
 
@@ -150,7 +155,7 @@ export class NgpToggleGroupDirective
    * @param fn The callback to register.
    * @internal
    */
-  registerOnChange(fn: (value: string | null) => void): void {
+  registerOnChange(fn: (value: ReadonlyArray<string>) => void): void {
     this.onChange = fn;
   }
 

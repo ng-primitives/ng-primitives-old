@@ -39,6 +39,7 @@ import { NgpToggleDirective } from '@ng-primitives/ng-primitives/toggle';
 import {
   NgpToggleGroupButtonDirective,
   NgpToggleGroupDirective,
+  NgpToggleGroupMultiDirective,
 } from '@ng-primitives/ng-primitives/toggle-group';
 import {
   NgpTooltipArrowDirective,
@@ -99,6 +100,7 @@ import { NgpVisuallyHiddenDirective } from '@ng-primitives/ng-primitives/visuall
 
     // Toggle Group
     NgpToggleGroupDirective,
+    NgpToggleGroupMultiDirective,
     NgpToggleGroupButtonDirective,
   ],
   selector: 'ng-primitives-root',
@@ -116,4 +118,6 @@ import { NgpVisuallyHiddenDirective } from '@ng-primitives/ng-primitives/visuall
 })
 export class AppComponent {
   progress = 50;
+
+  value = 'one';
 }
