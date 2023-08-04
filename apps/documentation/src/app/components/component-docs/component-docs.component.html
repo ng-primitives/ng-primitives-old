@@ -1,0 +1,61 @@
+<h1>Accordion</h1>
+
+<p class="lead">
+  A vertically stacked set of interactive headings that each reveal an associated section of
+  content.
+</p>
+
+<h2 id="installation" class="scroll-mt-24" docs-heading>Installation</h2>
+
+<p>Install the component from your command line.</p>
+
+<docs-code-group>
+  <docs-code-group-tab title="NPM">npm install @ng-primtives/accordion</docs-code-group-tab>
+  <docs-code-group-tab title="Yarn">yarn install @ng-primtives/accordion</docs-code-group-tab>
+</docs-code-group>
+
+<h2 id="example" class="scroll-mt-24" docs-heading>Anatomy</h2>
+
+<p>Import all parts and piece them together.</p>
+
+<docs-code-group>
+  <docs-code-group-tab title="HTML">npm install @ng-primtives/accordion</docs-code-group-tab>
+  <docs-code-group-tab title="TypeScript">yarn install @ng-primtives/accordion</docs-code-group-tab>
+  <docs-code-group-tab title="CSS">yarn install @ng-primtives/accordion</docs-code-group-tab>
+</docs-code-group>
+
+<h2 id="api" class="scroll-mt-24" docs-heading>API Reference</h2>
+
+<p>The Inputs, Outputs, Methods and details.</p>
+
+<h3 id="NgpAccordion" docs-heading>NgpAccordion</h3>
+
+<p>The root accordion directive that all parts should be placed within.</p>
+
+<h4 class="font-semibold">Inputs</h4>
+
+<div class="grid grid-cols-1 items-start gap-x-16 gap-y-10 xl:max-w-none xl:grid-cols-2">
+  <div class="[&>:first-child]:mt-0 [&>:last-child]:mb-0">
+    <div class="my-6">
+      <ul
+        role="list"
+        class="m-0 max-w-[calc(theme(maxWidth.lg)-theme(spacing.8))] list-none divide-y divide-zinc-900/5 p-0 dark:divide-white/5"
+      >
+        <li *ngFor="let i of [1, 1, 1]" class="m-0 px-0 py-4 first:pt-0 last:pb-0">
+          <dl class="m-0 flex flex-wrap items-center gap-x-3 gap-y-2">
+            <dt class="sr-only">Name</dt>
+            <dd>
+              <code>ngpAccordionMultiple</code>
+            </dd>
+            <dt class="sr-only">Type</dt>
+            <dd class="font-mono text-xs text-zinc-400 dark:text-zinc-500">boolean</dd>
+            <dt class="sr-only">Description</dt>
+            <dd class="w-full flex-none [&>:first-child]:mt-0 [&>:last-child]:mb-0">
+              Determines whether multiple panels can be open simultaneously.
+            </dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

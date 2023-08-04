@@ -1,31 +1,35 @@
+:root {
+  --shiki-color-text: theme('colors.white');
+  --shiki-token-constant: theme('colors.emerald.300');
+  --shiki-token-string: theme('colors.emerald.300');
+  --shiki-token-comment: theme('colors.zinc.500');
+  --shiki-token-keyword: theme('colors.sky.300');
+  --shiki-token-parameter: theme('colors.pink.300');
+  --shiki-token-function: theme('colors.violet.300');
+  --shiki-token-string-expression: theme('colors.emerald.300');
+  --shiki-token-punctuation: theme('colors.zinc.200');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.background {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  left: -25%;
-  top: -15%;
-  z-index: -1;
-  transition: background 0.5s ease-in-out;
-  background: conic-gradient(
-      from 180deg at 50% 50%,
-      #7f0f37 0deg,
-      #dc2186 133.12deg,
-      #e16c64 208.13deg,
-      #fedbb3 360deg
-    )
-    no-repeat;
-  filter: blur(200px);
-  transform: rotate(180deg) translateY(40%);
+ng-icon.hidden {
+  display: none;
+}
 
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
-  }
+.dark ng-icon.dark\:hidden {
+  display: none;
+}
+
+.prose :where(code):not(:where([class~='not-prose'] *)) {
+  color: var(--tw-prose-code);
+  border-radius: 0.5rem;
+  padding-top: 0.25rem;
+  padding-right: 0.375rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.375rem;
+  box-shadow: inset 0 0 0 1px var(--tw-prose-code-ring);
+  background-color: var(--tw-prose-code-bg);
+  font-size: 0.75rem;
 }

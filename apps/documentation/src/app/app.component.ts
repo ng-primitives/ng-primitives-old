@@ -1,123 +1,49 @@
-import { Component } from '@angular/core';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { lucideInfo, lucideSearch } from '@ng-icons/lucide';
-import {
-  radixTextAlignCenter,
-  radixTextAlignLeft,
-  radixTextAlignRight,
-} from '@ng-icons/radix-icons';
-import {
-  NgpAccordionContentDirective,
-  NgpAccordionDirective,
-  NgpAccordionHeaderDirective,
-  NgpAccordionPanelDirective,
-  NgpAccordionTriggerDirective,
-} from '@ng-primitives/ng-primitives/accordion';
-import {
-  NgpAvatarDirective,
-  NgpAvatarFallbackDirective,
-  NgpAvatarImageDirective,
-} from '@ng-primitives/ng-primitives/avatar';
-import {
-  NgpOverlayArrowDirective,
-  NgpOverlayDirective,
-  NgpOverlayTriggerDirective,
-} from '@ng-primitives/ng-primitives/overlay';
-import {
-  NgpProgressDirective,
-  NgpProgressIndicatorDirective,
-} from '@ng-primitives/ng-primitives/progress';
-import { NgpSeparatorDirective } from '@ng-primitives/ng-primitives/separator';
-import { NgpSwitchDirective, NgpSwitchThumbDirective } from '@ng-primitives/ng-primitives/switch';
-import {
-  NgpTabButtonDirective,
-  NgpTabListDirective,
-  NgpTabPanelDirective,
-  NgpTabsetDirective,
-} from '@ng-primitives/ng-primitives/tabs';
-import { NgpToggleDirective } from '@ng-primitives/ng-primitives/toggle';
-import {
-  NgpToggleGroupButtonDirective,
-  NgpToggleGroupDirective,
-  NgpToggleGroupMultiDirective,
-} from '@ng-primitives/ng-primitives/toggle-group';
-import {
-  NgpTooltipArrowDirective,
-  NgpTooltipDirective,
-  NgpTooltipTriggerDirective,
-} from '@ng-primitives/ng-primitives/tooltip';
-import { NgpVisuallyHiddenDirective } from '@ng-primitives/ng-primitives/visually-hidden';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { ComponentDocsComponent } from './components/component-docs/component-docs.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @Component({
   standalone: true,
-  imports: [
-    // Icons
-    NgIconComponent,
-    // Tabs
-    NgpTabsetDirective,
-    NgpTabButtonDirective,
-    NgpTabListDirective,
-    NgpTabPanelDirective,
-
-    // Overlay
-    NgpOverlayDirective,
-    NgpOverlayArrowDirective,
-    NgpOverlayTriggerDirective,
-
-    // Tooltip
-    NgpTooltipDirective,
-    NgpTooltipTriggerDirective,
-    NgpTooltipArrowDirective,
-
-    // Progress
-    NgpProgressDirective,
-    NgpProgressIndicatorDirective,
-
-    // Visually Hidden
-    NgpVisuallyHiddenDirective,
-
-    // Accordion
-    NgpAccordionDirective,
-    NgpAccordionPanelDirective,
-    NgpAccordionContentDirective,
-    NgpAccordionHeaderDirective,
-    NgpAccordionTriggerDirective,
-
-    // Switch
-    NgpSwitchDirective,
-    NgpSwitchThumbDirective,
-
-    // Separator
-    NgpSeparatorDirective,
-
-    // Toggle
-    NgpToggleDirective,
-
-    // Avatar
-    NgpAvatarDirective,
-    NgpAvatarImageDirective,
-    NgpAvatarFallbackDirective,
-
-    // Toggle Group
-    NgpToggleGroupDirective,
-    NgpToggleGroupMultiDirective,
-    NgpToggleGroupButtonDirective,
-  ],
-  selector: 'ng-primitives-root',
+  imports: [LayoutComponent, ComponentDocsComponent],
+  selector: 'docs-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  viewProviders: [
-    provideIcons({
-      lucideSearch,
-      lucideInfo,
-      radixTextAlignLeft,
-      radixTextAlignCenter,
-      radixTextAlignRight,
-    }),
-  ],
 })
-export class AppComponent {
-  progress = 50;
+export class AppComponent implements OnInit {
+  private readonly darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-  value = 'one';
+  ngOnInit(): void {
+    this.updateMode();
+    this.darkModeMediaQuery.addEventListener('change', () => this.updateModeWithoutTransitions());
+  }
+
+  updateMode(): void {
+    const isSystemDarkMode = this.darkModeMediaQuery.matches;
+    const isDarkMode =
+      window.localStorage.getItem('isDarkMode') === 'true' ||
+      (!window.localStorage.getItem('isDarkMode') && isSystemDarkMode);
+
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    if (isDarkMode === isSystemDarkMode) {
+      window.localStorage.removeItem('isDarkMode');
+    }
+  }
+
+  disableTransitionsTemporarily(): void {
+    document.documentElement.classList.add('[&_*]:!transition-none');
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('[&_*]:!transition-none');
+    }, 0);
+  }
+
+  @HostListener('window:storage')
+  updateModeWithoutTransitions() {
+    this.disableTransitionsTemporarily();
+    this.updateMode();
+  }
 }

@@ -9,18 +9,19 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "ngPrimitives",
+            "prefix": "docs",
             "style": "camelCase"
           }
         ],
         "@angular-eslint/component-selector": [
           "error",
           {
-            "type": "element",
-            "prefix": "ng-primitives",
+            "type": ["element", "attribute"],
+            "prefix": "docs",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@angular-eslint/no-host-metadata-property": "off"
       },
       "extends": [
         "plugin:@nx/angular",

@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "compodoc": "compodoc -c .compodocrc.json"
   },
   "private": true,
   "devDependencies": {
@@ -21,6 +22,7 @@
     "@commitlint/config-angular": "^17.0.0",
     "@commitlint/cz-commitlint": "^17.6.7",
     "@commitlint/prompt-cli": "^17.6.7",
+    "@compodoc/compodoc": "^1.1.21",
     "@jscutlery/semver": "^3.1.0",
     "@nx/angular": "16.5.5",
     "@nx/eslint-plugin": "16.5.5",
@@ -57,6 +59,7 @@
     "postcss-url": "~10.1.3",
     "prettier": "^2.8.8",
     "prettier-plugin-organize-attributes": "^0.0.5",
+    "prettier-plugin-tailwindcss": "^0.4.1",
     "sass": "^1.63.6",
     "stylelint": "^15.10.1",
     "stylelint-config-standard-scss": "^10.0.0",
@@ -77,6 +80,7 @@
     "@angular/router": "~16.1.0",
     "@floating-ui/dom": "^1.4.5",
     "@ng-icons/core": "^25.1.0",
+    "@ng-icons/heroicons": "^25.1.0",
     "@ng-icons/lucide": "^25.1.0",
     "@ng-icons/radix-icons": "^25.1.0",
     "@nx/devkit": "16.5.5",
