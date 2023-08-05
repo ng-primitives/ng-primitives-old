@@ -7,3 +7,11 @@ body {
   display: block;
   height: 100%;
 }
+
+ng-icon.hidden {
+  display: none;
+}
+
+.dark ng-icon\.dark\:hidden {
+  display: none;
+}
