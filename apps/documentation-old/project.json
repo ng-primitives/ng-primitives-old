@@ -1,22 +1,22 @@
 {
-  "name": "documentation",
+  "name": "documentation-old",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "docs",
-  "sourceRoot": "apps/documentation/src",
+  "sourceRoot": "apps/documentation-old/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/documentation",
-        "index": "apps/documentation/src/index.html",
-        "main": "apps/documentation/src/main.ts",
+        "outputPath": "dist/apps/documentation-old",
+        "index": "apps/documentation-old/src/index.html",
+        "main": "apps/documentation-old/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/documentation/tsconfig.app.json",
-        "assets": ["apps/documentation/src/favicon.ico", "apps/documentation/src/assets"],
-        "styles": ["apps/documentation/src/styles.scss"],
+        "tsConfig": "apps/documentation-old/tsconfig.app.json",
+        "assets": ["apps/documentation-old/src/favicon.ico", "apps/documentation-old/src/assets"],
+        "styles": ["apps/documentation-old/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -50,10 +50,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "documentation:build:production"
+          "browserTarget": "documentation-old:build:production"
         },
         "development": {
-          "browserTarget": "documentation:build:development"
+          "browserTarget": "documentation-old:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -61,21 +61,21 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "documentation:build"
+        "browserTarget": "documentation-old:build"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/documentation/**/*.ts", "apps/documentation/**/*.html"]
+        "lintFilePatterns": ["apps/documentation-old/**/*.ts", "apps/documentation-old/**/*.html"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/documentation/jest.config.ts",
+        "jestConfig": "apps/documentation-old/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {

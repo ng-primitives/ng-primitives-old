@@ -9,6 +9,7 @@
   },
   "private": true,
   "devDependencies": {
+    "@analogjs/platform": "0.2.0-rc.1",
     "@angular-devkit/build-angular": "~16.1.0",
     "@angular-devkit/core": "~16.1.0",
     "@angular-devkit/schematics": "~16.1.0",
