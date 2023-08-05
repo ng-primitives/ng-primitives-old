@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { MobileNavigationComponent } from '../mobile-navigation/mobile-navigation.component';
 import { MobileSearchComponent } from '../mobile-search/mobile-search.component';
@@ -27,4 +27,25 @@ export class HeaderComponent {
   mobileNavIsOpen = false;
   bgOpacityLight = 0.5;
   bgOpacityDark = 0.2;
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.bgOpacityLight = transformValue(scrollY, [0, 72], [0.5, 0.9]);
+    this.bgOpacityDark = transformValue(scrollY, [0, 72], [0.2, 0.8]);
+  }
+}
+
+function transformValue(
+  value: number,
+  inputRange: [number, number],
+  outputRange: [number, number],
+): number {
+  const [inputMin, inputMax] = inputRange;
+  const [outputMin, outputMax] = outputRange;
+  const inputRangeSize = inputMax - inputMin;
+  const outputRangeSize = outputMax - outputMin;
+  const relativeValue = value - inputMin;
+  const valuePercentage = relativeValue / inputRangeSize;
+  const outputValue = valuePercentage * outputRangeSize;
+  return outputValue + outputMin;
 }

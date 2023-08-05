@@ -34,28 +34,11 @@
 
 <h4 class="font-semibold">Inputs</h4>
 
-<div class="grid grid-cols-1 items-start gap-x-16 gap-y-10 xl:max-w-none xl:grid-cols-2">
-  <div class="[&>:first-child]:mt-0 [&>:last-child]:mb-0">
-    <div class="my-6">
-      <ul
-        role="list"
-        class="m-0 max-w-[calc(theme(maxWidth.lg)-theme(spacing.8))] list-none divide-y divide-zinc-900/5 p-0 dark:divide-white/5"
-      >
-        <li *ngFor="let i of [1, 1, 1]" class="m-0 px-0 py-4 first:pt-0 last:pb-0">
-          <dl class="m-0 flex flex-wrap items-center gap-x-3 gap-y-2">
-            <dt class="sr-only">Name</dt>
-            <dd>
-              <code>ngpAccordionMultiple</code>
-            </dd>
-            <dt class="sr-only">Type</dt>
-            <dd class="font-mono text-xs text-zinc-400 dark:text-zinc-500">boolean</dd>
-            <dt class="sr-only">Description</dt>
-            <dd class="w-full flex-none [&>:first-child]:mt-0 [&>:last-child]:mb-0">
-              Determines whether multiple panels can be open simultaneously.
-            </dd>
-          </dl>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+<docs-properties>
+  <li
+    docs-property
+    name="ngpAccordionMultiple"
+    type="boolean"
+    description="Whether or not the multiple."
+  ></li>
+</docs-properties>
