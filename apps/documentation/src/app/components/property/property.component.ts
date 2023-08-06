@@ -20,10 +20,10 @@ export class PropertyComponent {
   /**
    * Define the type of the property.
    */
-  @Input({ required: true }) type!: string;
+  @Input() type?: string;
 
   /**
    * Define the desciption of the property.
    */
-  @Input({ required: true }) description!: string;
+  @Input() description?: string;
 }

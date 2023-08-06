@@ -2,6 +2,9 @@ import { Directive, HostBinding, Input, booleanAttribute, signal } from '@angula
 import { injectAccordionConfig } from '../config/accordion.config';
 import { NgpAccordionToken } from './accordion.token';
 
+/**
+ * The root accordion directive that all parts should be placed within.
+ */
 @Directive({
   selector: '[ngpAccordion]',
   standalone: true,
@@ -17,7 +20,7 @@ export class NgpAccordionDirective {
    * Determines whether multiple panels can be open simultaneously.
    * @default false
    */
-  @Input({ alias: 'ngpAccordionMultiple', transform: booleanAttribute }) multiple =
+  @Input({ alias: 'ngpAccordionMultiple', transform: booleanAttribute }) multiple: boolean =
     this.config.multiple;
 
   /**

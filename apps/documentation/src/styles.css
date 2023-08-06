@@ -15,3 +15,7 @@ ng-icon.hidden {
 .dark ng-icon\.dark\:hidden {
   display: none;
 }
+
+.prose :where(code):not(:where([class~='not-prose'] *)) {
+  padding: 0.25rem 0.5rem;
+}
