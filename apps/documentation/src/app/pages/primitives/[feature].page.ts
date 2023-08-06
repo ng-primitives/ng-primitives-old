@@ -1,4 +1,4 @@
-import { injectContent, injectContentFiles } from '@analogjs/content';
+import { injectContent } from '@analogjs/content';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import data from '../../assets/documentation.json';
@@ -117,12 +117,6 @@ export default class HomeComponent {
   package?: string;
 
   directives: DirectiveDecl[] = [];
-
-  constructor() {
-    debugger;
-    const a = injectContentFiles();
-    debugger;
-  }
 
   ngOnInit(): void {
     this.feature$.subscribe(feature => {
