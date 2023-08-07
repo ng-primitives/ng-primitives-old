@@ -89,6 +89,17 @@ export class NgpCheckboxDirective implements ControlValueAccessor {
     this.checked = this.indeterminate ? true : !this.checked;
     this.checkedChange.emit(this.checked);
     this.onChange?.(this.checked);
+
+    // if the checkbox was indeterminate, it isn't anymore
+    if (this.indeterminate) {
+      this.indeterminate = false;
+      this.indeterminateChange.emit(this.indeterminate);
+    }
+  }
+
+  @HostListener('blur')
+  onBlur(): void {
+    this.onTouched?.();
   }
 
   /**

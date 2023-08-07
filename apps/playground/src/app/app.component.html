@@ -1,7 +1,12 @@
 <div style="display: flex; align-items: center">
-  <button ngpCheckbox [(ngpCheckboxChecked)]="checked" id="c1">
-    <span *ngIf="checked" ngpCheckboxIndicator>
-      <ng-icon name="radixCheck" />
+  <button
+    ngpCheckbox
+    [(ngpCheckboxChecked)]="checked"
+    [(ngpCheckboxIndeterminate)]="indeterminate"
+    id="c1"
+  >
+    <span *ngIf="checked || indeterminate" ngpCheckboxIndicator>
+      <ng-icon [name]="indeterminate ? 'radixDash' : 'radixCheck'" />
     </span>
   </button>
 

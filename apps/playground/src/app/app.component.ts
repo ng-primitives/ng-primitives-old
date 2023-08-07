@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { radixCheck } from '@ng-icons/radix-icons';
+import { radixCheck, radixDash } from '@ng-icons/radix-icons';
 import {
   NgpCheckboxDirective,
   NgpCheckboxIndicatorDirective,
@@ -13,8 +13,9 @@ import {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [provideIcons({ radixCheck })],
+  providers: [provideIcons({ radixCheck, radixDash })],
 })
 export class AppComponent {
   checked = false;
+  indeterminate = true;
 }
