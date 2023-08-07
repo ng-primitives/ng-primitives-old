@@ -1,14 +1,22 @@
-<div style="display: flex; align-items: center">
-  <button
-    ngpCheckbox
-    [(ngpCheckboxChecked)]="checked"
-    [(ngpCheckboxIndeterminate)]="indeterminate"
-    id="c1"
-  >
-    <span *ngIf="checked || indeterminate" ngpCheckboxIndicator>
-      <ng-icon [name]="indeterminate ? 'radixDash' : 'radixCheck'" />
-    </span>
-  </button>
+<div ngpRadioGroup [(ngpRadioGroupValue)]="value" aria-label="View density">
+  <div class="display: flex; align-items: center">
+    <button ngpRadioItem ngpRadioItemValue="default" id="r1">
+      <span ngpRadioIndicator *ngIf="value === 'default'"></span>
+    </button>
+    <label class="Label" for="r1">Default</label>
+  </div>
 
-  <label class="Label" for="c1"> Accept terms and conditions. </label>
+  <div class="display: flex; align-items: center">
+    <button ngpRadioItem ngpRadioItemValue="comfortable" id="r2">
+      <span ngpRadioIndicator *ngIf="value === 'comfortable'"></span>
+    </button>
+    <label class="Label" for="r2">Comfortable</label>
+  </div>
+
+  <div class="display: flex; align-items: center">
+    <button ngpRadioItem ngpRadioItemValue="compact" id="r3">
+      <span ngpRadioIndicator *ngIf="value === 'compact'"></span>
+    </button>
+    <label class="Label" for="r3">Compact</label>
+  </div>
 </div>

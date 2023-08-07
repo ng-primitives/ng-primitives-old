@@ -1,21 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { radixCheck, radixDash } from '@ng-icons/radix-icons';
 import {
-  NgpCheckboxDirective,
-  NgpCheckboxIndicatorDirective,
-} from '@ng-primitives/ng-primitives/checkbox';
+  NgpRadioGroupDirective,
+  NgpRadioIndicatorDirective,
+  NgpRadioItemDirective,
+} from '@ng-primitives/ng-primitives/radio';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, NgpCheckboxDirective, NgpCheckboxIndicatorDirective, NgIconComponent],
+  imports: [
+    CommonModule,
+    NgpRadioGroupDirective,
+    NgpRadioItemDirective,
+    NgpRadioIndicatorDirective,
+  ],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [provideIcons({ radixCheck, radixDash })],
+  providers: [],
 })
 export class AppComponent {
-  checked = false;
-  indeterminate = true;
+  value?: string;
 }
