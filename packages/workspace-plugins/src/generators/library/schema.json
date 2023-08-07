@@ -17,6 +17,11 @@
       "type": "boolean",
       "description": "Skip the creation of a directive?",
       "default": false
+    },
+    "skipDocumentation": {
+      "type": "boolean",
+      "description": "Skip the creation of documentation?",
+      "default": false
     }
   },
   "required": ["name"]

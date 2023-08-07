@@ -83,7 +83,7 @@ import { Compodoc, DirectiveDecl, MethodsClass } from '../../models/compodoc';
         </docs-properties>
       </ng-container>
 
-      <ng-container *ngIf="directive.methodsClass.length">
+      <ng-container *ngIf="getPublicMethods(directive).length">
         <h4 class="font-semibold">Methods</h4>
 
         <docs-properties>
