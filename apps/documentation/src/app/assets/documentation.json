@@ -1924,6 +1924,64 @@
             ]
         },
         {
+            "name": "NgpCheckboxDirective",
+            "id": "directive-NgpCheckboxDirective-7b2d5bcefbf43827969e6f95558030539543cc2cc441804674ec1108665039a0dad5998fc985e8eca3c6a76b9e7ce86f1c153a5828232748137549185f28eab3",
+            "file": "packages/ng-primitives/checkbox/src/checkbox/checkbox.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive } from '@angular/core';\n\n@Directive({\n  selector: '[ngpCheckbox]',\n  standalone: true,\n})\nexport class NgpCheckboxDirective {\n  constructor() {}\n}\n",
+            "selector": "[ngpCheckbox]",
+            "providers": [],
+            "hostDirectives": [],
+            "standalone": true,
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 7
+            }
+        },
+        {
+            "name": "NgpCheckboxIndicatorDirective",
+            "id": "directive-NgpCheckboxIndicatorDirective-68dac3c1e43cc4665559c7fc4a995f8aaadee476b6933d067a8b1ae9b225f4673c826d28a434c1988069a344c9907d096467cdcd32d661db97aec95498ffc2d3",
+            "file": "packages/ng-primitives/checkbox/src/checkbox-indicator/checkbox-indicator.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive } from '@angular/core';\n\n@Directive({\n  selector: '[ngpCheckboxIndicator]',\n  standalone: true,\n})\nexport class NgpCheckboxIndicatorDirective {\n  constructor() {}\n}\n",
+            "selector": "[ngpCheckboxIndicator]",
+            "providers": [],
+            "hostDirectives": [],
+            "standalone": true,
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 7
+            }
+        },
+        {
             "name": "NgpOverlayArrowDirective",
             "id": "directive-NgpOverlayArrowDirective-fd3755deeaad3d7119e668290eb8bdbdaefd6b1e36e3e879d29d8b25c1a206713704acfc411ec425e78d755473bc9b1d798c78e081e45f87d323fb75f587d2d1",
             "file": "packages/ng-primitives/overlay/src/overlay-arrow/overlay-arrow.directive.ts",
@@ -8603,7 +8661,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 47,
+        "count": 46,
         "status": "medium",
         "files": [
             {
@@ -8853,6 +8911,24 @@
                 "name": "NgpAvatarConfigToken",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "packages/ng-primitives/checkbox/src/checkbox-indicator/checkbox-indicator.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "NgpCheckboxIndicatorDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "packages/ng-primitives/checkbox/src/checkbox/checkbox.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "NgpCheckboxDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {

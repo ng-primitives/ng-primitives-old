@@ -28,17 +28,16 @@ export async function libraryGenerator(tree: Tree, options: LibraryGeneratorSche
     tree.write(
       `apps/documentation/src/content/${fileName}.md`,
       `---
-    title: ${fileName
-      .split('-')
-      .map(word => word[0].toUpperCase() + word.slice(1))
-      .join(' ')}
-    description: TODO
-    package: >
-      @ng-primtives/${fileName}
-    directives:
-      - Ngp${className}Directive
-    ---
-    `,
+title: ${fileName
+        .split('-')
+        .map(word => word[0].toUpperCase() + word.slice(1))
+        .join(' ')}
+description: TODO
+package: >
+  @ng-primtives/${fileName}
+directives:
+  - Ngp${className}Directive
+---`,
     );
   }
 

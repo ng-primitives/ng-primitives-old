@@ -68,7 +68,9 @@
           "packages/ng-primitives/avatar/**/*.ts",
           "packages/ng-primitives/avatar/**/*.html",
           "packages/ng-primitives/toggle-group/**/*.ts",
-          "packages/ng-primitives/toggle-group/**/*.html"
+          "packages/ng-primitives/toggle-group/**/*.html",
+          "packages/ng-primitives/checkbox/**/*.ts",
+          "packages/ng-primitives/checkbox/**/*.html"
         ]
       }
     }
