@@ -1,1 +1,9 @@
-<app-nx-welcome></app-nx-welcome>
+<div style="display: flex; align-items: center">
+  <button ngpCheckbox [(ngpCheckboxChecked)]="checked" id="c1">
+    <span *ngIf="checked" ngpCheckboxIndicator>
+      <ng-icon name="radixCheck" />
+    </span>
+  </button>
+
+  <label class="Label" for="c1"> Accept terms and conditions. </label>
+</div>

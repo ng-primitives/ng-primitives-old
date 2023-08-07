@@ -1,0 +1,32 @@
+[ngpCheckbox] {
+  all: unset;
+  background-color: black;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 10px;
+  border-radius: 4px;
+}
+
+[ngpCheckbox]:hover {
+  background-color: rgb(48, 48, 48);
+}
+
+[ngpCheckbox]:focus {
+  outline-offset: 2px;
+  outline: rgb(77, 144, 254) solid 2px;
+}
+
+[ngpCheckboxIndicator] {
+  display: inline-flex;
+  color: white;
+}
+
+label {
+  color: black;
+  padding-left: 15px;
+  font-size: 15px;
+  line-height: 1;
+}
