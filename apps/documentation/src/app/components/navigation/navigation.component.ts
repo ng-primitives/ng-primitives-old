@@ -1,3 +1,4 @@
+import { injectContentFiles } from '@analogjs/content';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavigationGroupComponent } from '../navigation-group/navigation-group.component';
@@ -10,6 +11,8 @@ import { NavigationGroupComponent } from '../navigation-group/navigation-group.c
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent {
+  private readonly files = injectContentFiles();
+
   groups = [
     {
       title: 'Overview',
@@ -21,18 +24,18 @@ export class NavigationComponent {
     {
       title: 'Primitives',
       links: [
-        { title: 'Accordion', href: '/primitives/accordion' },
-        { title: 'Avatar', href: '/primitives/avatar' },
-        { title: 'Progress', href: '/primitives/progress' },
-        { title: 'Resize', href: '/primitives/resize' },
-        { title: 'Roving Focus', href: '/primitives/roving-focus' },
-        { title: 'Separator', href: '/primitives/separator' },
-        { title: 'Switch', href: '/primitives/switch' },
-        { title: 'Tabs', href: '/primitives/tabs' },
-        { title: 'Toggle', href: '/primitives/toggle' },
-        { title: 'Toggle Group', href: '/primitives/toggle-group' },
-        { title: 'Tooltip', href: '/primitives/tooltip' },
-        { title: 'Visually Hidden', href: '/primitives/visually-hidden' },
+        ...this.files.map(file => {
+          // get the filename from the path and remove the extension
+          const filename = file.filename.split('/').pop()?.replace('.md', '');
+
+          // the filename will be kebab-case, so we need to convert it to separate words (each word starts with a capital letter)
+          const title = filename
+            ?.split('-')
+            .map(word => word[0].toUpperCase() + word.slice(1))
+            .join(' ');
+
+          return { title: title, href: `/primitives/${filename}` };
+        }),
       ],
     },
   ];
