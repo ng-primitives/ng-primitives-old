@@ -1,22 +1,9 @@
-<div ngpRadioGroup [(ngpRadioGroupValue)]="value" aria-label="View density">
-  <div class="display: flex; align-items: center">
-    <button ngpRadioItem ngpRadioItemValue="default" id="r1">
-      <span ngpRadioIndicator *ngIf="value === 'default'"></span>
-    </button>
-    <label class="Label" for="r1">Default</label>
-  </div>
+<div ngpSelect>
+  <button ngpSelectTrigger>{{ value }}</button>
 
-  <div class="display: flex; align-items: center">
-    <button ngpRadioItem ngpRadioItemValue="comfortable" id="r2">
-      <span ngpRadioIndicator *ngIf="value === 'comfortable'"></span>
-    </button>
-    <label class="Label" for="r2">Comfortable</label>
-  </div>
-
-  <div class="display: flex; align-items: center">
-    <button ngpRadioItem ngpRadioItemValue="compact" id="r3">
-      <span ngpRadioIndicator *ngIf="value === 'compact'"></span>
-    </button>
-    <label class="Label" for="r3">Compact</label>
+  <div *ngpSelectOptions>
+    <div *ngFor="let option of options" ngpSelectOption>
+      {{ option }}
+    </div>
   </div>
 </div>

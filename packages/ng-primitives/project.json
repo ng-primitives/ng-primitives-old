@@ -72,7 +72,9 @@
           "packages/ng-primitives/checkbox/**/*.ts",
           "packages/ng-primitives/checkbox/**/*.html",
           "packages/ng-primitives/radio/**/*.ts",
-          "packages/ng-primitives/radio/**/*.html"
+          "packages/ng-primitives/radio/**/*.html",
+          "packages/ng-primitives/select/**/*.ts",
+          "packages/ng-primitives/select/**/*.html"
         ]
       }
     }
