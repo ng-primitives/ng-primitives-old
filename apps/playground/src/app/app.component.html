@@ -1,9 +1,11 @@
-<div ngpSelect>
-  <button ngpSelectTrigger>{{ value }}</button>
+<button ngpSelect [(ngpSelectValue)]="value">
+  <span *ngpSelectLabel="let label">{{ label }}</span>
+  <span *ngpSelectPlaceholder>Choose an option</span>
+  <ng-icon name="heroChevronDown" />
 
-  <div *ngpSelectOptions>
-    <div *ngFor="let option of options" ngpSelectOption>
+  <div *ngpSelectOptions class="options">
+    <div class="option" *ngFor="let option of options" [ngpSelectOption]="option">
       {{ option }}
     </div>
   </div>
-</div>
+</button>

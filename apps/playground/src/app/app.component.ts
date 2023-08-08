@@ -1,12 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { heroChevronDown } from '@ng-icons/heroicons/outline';
 import {
   NgpSelectDirective,
   NgpSelectGroupDirective,
   NgpSelectGroupLabelDirective,
+  NgpSelectIconDirective,
+  NgpSelectLabelDirective,
   NgpSelectOptionDirective,
   NgpSelectOptionsDirective,
-  NgpSelectTriggerDirective,
+  NgpSelectPlaceholderDirective,
 } from '@ng-primitives/ng-primitives/select';
 
 @Component({
@@ -18,14 +22,17 @@ import {
     NgpSelectGroupLabelDirective,
     NgpSelectOptionDirective,
     NgpSelectOptionsDirective,
-    NgpSelectTriggerDirective,
+    NgpSelectLabelDirective,
+    NgpSelectPlaceholderDirective,
+    NgpSelectIconDirective,
+    NgIconComponent,
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [],
+  providers: [provideIcons({ heroChevronDown })],
 })
 export class AppComponent {
-  value?: string;
   options = ['Option 1', 'Option 2', 'Option 3'];
+  value?: string = this.options[0];
 }
