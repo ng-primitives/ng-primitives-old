@@ -14,7 +14,7 @@ export const defaultAvatarConfig: NgpAvatarConfig = {
 
 export const NgpAvatarConfigToken = new InjectionToken<NgpAvatarConfig>('NgpAvatarConfigToken');
 
-export function provideAvatarConfig(config: Partial<NgpAvatarConfig>): Provider[] {
+export function provideNgpAvatarConfig(config: Partial<NgpAvatarConfig>): Provider[] {
   return [
     {
       provide: NgpAvatarConfigToken,

@@ -1,19 +1,18 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Ng Primitives",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.png",
-    "colors": {
-    "primary": "#06BCEE",
-    "light": "#81D7F7",
+  "backgroundImage": "/images/background.png",
+  "colors": {
+    "primary": "#f60661",
+    "light": "#ffafbd",
     "dark": "#06A6D1",
-    "ultraLight": "#F2F8FB",
-    "ultraDark": "#0B0101",
     "background": {
-      "dark": "#111111"
+      "dark": "#010009"
     },
     "anchors": {
       "from": "#FF7F57",
@@ -25,76 +24,27 @@
     "isHidden": true
   },
   "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
-    }
   ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
-  },
   "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
+
   ],
   "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
+
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "development"
-      ]
+      "pages": ["introduction", "quickstart"]
     },
     {
-      "group": "Essentials",
+      "group": "Primitives",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/authentication"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "primitives/avatar"
       ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/ashh640",
+    "github": "https://github.com/ng-primitives/ng-primitives"
   }
 }

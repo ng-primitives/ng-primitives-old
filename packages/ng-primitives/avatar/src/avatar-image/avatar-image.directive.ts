@@ -33,12 +33,12 @@ export class NgpAvatarImageDirective implements OnInit {
   }
 
   @HostListener('load')
-  onLoad(): void {
+  protected onLoad(): void {
     this.avatar.setState(NgpAvatarState.Loaded);
   }
 
   @HostListener('error')
-  onError(): void {
+  protected onError(): void {
     this.avatar.setState(NgpAvatarState.Error);
   }
 }

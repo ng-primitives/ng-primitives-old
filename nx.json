@@ -2,10 +2,9 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx-cloud",
+      "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "YWYyZjdhOWItMzk2Ni00NjJiLTljYWItOGJiYThjNmJkN2NjfHJlYWQtd3JpdGU="
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
@@ -32,10 +31,6 @@
       "!{projectRoot}/.eslintrc.json"
     ],
     "sharedGlobals": []
-  },
-  "workspaceLayout": {
-    "appsDir": "apps",
-    "libsDir": "packages"
   },
   "generators": {
     "@nx/angular:application": {
