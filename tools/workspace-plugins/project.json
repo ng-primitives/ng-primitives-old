@@ -1,40 +1,39 @@
 {
   "name": "workspace-plugins",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/workspace-plugins/src",
+  "sourceRoot": "tools/workspace-plugins/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/workspace-plugins",
-        "main": "packages/workspace-plugins/src/index.ts",
-        "tsConfig": "packages/workspace-plugins/tsconfig.lib.json",
+        "outputPath": "dist/tools/workspace-plugins",
+        "main": "tools/workspace-plugins/src/index.ts",
+        "tsConfig": "tools/workspace-plugins/tsconfig.lib.json",
         "assets": [
-          "packages/workspace-plugins/*.md",
+          "tools/workspace-plugins/*.md",
           {
-            "input": "./packages/workspace-plugins/src",
+            "input": "./tools/workspace-plugins/src",
             "glob": "**/!(*.ts)",
             "output": "./src"
           },
           {
-            "input": "./packages/workspace-plugins/src",
+            "input": "./tools/workspace-plugins/src",
             "glob": "**/*.d.ts",
             "output": "./src"
           },
           {
-            "input": "./packages/workspace-plugins",
+            "input": "./tools/workspace-plugins",
             "glob": "generators.json",
             "output": "."
           },
           {
-            "input": "./packages/workspace-plugins",
+            "input": "./tools/workspace-plugins",
             "glob": "executors.json",
             "output": "."
           }
-        ],
-        "updateBuildableProjectDepsInPackageJson": true
+        ]
       }
     },
     "lint": {
@@ -42,9 +41,9 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "packages/workspace-plugins/**/*.ts",
-          "packages/workspace-plugins/package.json",
-          "packages/workspace-plugins/generators.json"
+          "tools/workspace-plugins/**/*.ts",
+          "tools/workspace-plugins/package.json",
+          "tools/workspace-plugins/generators.json"
         ]
       }
     },
@@ -52,7 +51,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/workspace-plugins/jest.config.ts",
+        "jestConfig": "tools/workspace-plugins/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {

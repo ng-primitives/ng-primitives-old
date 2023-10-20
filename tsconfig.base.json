@@ -39,7 +39,7 @@
       "@ng-primitives/ng-primitives/visually-hidden": [
         "packages/ng-primitives/visually-hidden/src/index.ts"
       ],
-      "@ng-primitives/workspace-plugins": ["packages/workspace-plugins/src/index.ts"]
+      "@ng-primitives/workspace-plugins": ["tools/workspace-plugins/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
