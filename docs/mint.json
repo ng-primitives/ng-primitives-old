@@ -39,7 +39,8 @@
     {
       "group": "Primitives",
       "pages": [
-        "primitives/avatar"
+        "primitives/avatar",
+        "primitives/progress"
       ]
     }
   ],
