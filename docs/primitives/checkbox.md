@@ -25,7 +25,7 @@ Assemble the checkbox directives in your template.
 
 ```html
 <button ngpCheckbox [(ngpCheckboxChecked)]="checked">
-  <ng-icon ngpCheckboxIndicator name="checkmark"></span>
+  <ng-icon ngpCheckboxIndicator name="checkmark"></ng-icon>
 </button>
 ```
 
