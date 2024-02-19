@@ -33,7 +33,7 @@ Assemble the checkbox directives in your template.
 
 The following directives are available to import from the `@ng-primitives/checkbox` package:
 
-### NgpProgressDirective
+### NgpCheckboxDirective
 
 <ResponseField name="ngpCheckboxChecked" type="boolean" default="false">
   Define the checked state.
@@ -61,7 +61,7 @@ There are no inputs or outputs for this directive.
 
 ## Schematics
 
-You can use our schematic to generate a new progress component.
+You can use our schematic to generate a new checkbox component.
 
 <CodeGroup>
 
