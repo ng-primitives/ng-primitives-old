@@ -40,7 +40,11 @@
       "group": "Primitives",
       "pages": [
         "primitives/avatar",
-        "primitives/progress"
+        "primitives/checkbox",
+        "primitives/progress",
+        "primitives/radio",
+        "primitives/resize",
+        "primitives/switch"
       ]
     }
   ],
