@@ -32,6 +32,47 @@
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"]
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "packages/ng-primitives/.storybook",
+        "browserTarget": "ng-primitives:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/ng-primitives",
+        "configDir": "packages/ng-primitives/.storybook",
+        "browserTarget": "ng-primitives:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "ng-primitives:build-storybook",
+        "staticFilePath": "dist/storybook/ng-primitives"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "ng-primitives:build-storybook:ci"
+        }
+      }
     }
   }
 }
