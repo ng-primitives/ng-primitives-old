@@ -26,57 +26,12 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/ng-primitives/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "packages/ng-primitives/jest.config.ts"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "packages/ng-primitives/**/*.ts",
-          "packages/ng-primitives/**/*.html",
-          "packages/ng-primitives/accordion/**/*.ts",
-          "packages/ng-primitives/accordion/**/*.html",
-          "packages/ng-primitives/overlay/**/*.ts",
-          "packages/ng-primitives/overlay/**/*.html",
-          "packages/ng-primitives/progress/**/*.ts",
-          "packages/ng-primitives/progress/**/*.html",
-          "packages/ng-primitives/resize/**/*.ts",
-          "packages/ng-primitives/resize/**/*.html",
-          "packages/ng-primitives/roving-focus/**/*.ts",
-          "packages/ng-primitives/roving-focus/**/*.html",
-          "packages/ng-primitives/tabs/**/*.ts",
-          "packages/ng-primitives/tabs/**/*.html",
-          "packages/ng-primitives/tooltip/**/*.ts",
-          "packages/ng-primitives/tooltip/**/*.html",
-          "packages/ng-primitives/visually-hidden/**/*.ts",
-          "packages/ng-primitives/visually-hidden/**/*.html",
-          "packages/ng-primitives/switch/**/*.ts",
-          "packages/ng-primitives/switch/**/*.html",
-          "packages/ng-primitives/separator/**/*.ts",
-          "packages/ng-primitives/separator/**/*.html",
-          "packages/ng-primitives/toggle/**/*.ts",
-          "packages/ng-primitives/toggle/**/*.html",
-          "packages/ng-primitives/avatar/**/*.ts",
-          "packages/ng-primitives/avatar/**/*.html",
-          "packages/ng-primitives/toggle-group/**/*.ts",
-          "packages/ng-primitives/toggle-group/**/*.html",
-          "packages/ng-primitives/checkbox/**/*.ts",
-          "packages/ng-primitives/checkbox/**/*.html",
-          "packages/ng-primitives/radio/**/*.ts",
-          "packages/ng-primitives/radio/**/*.html",
-          "packages/ng-primitives/select/**/*.ts",
-          "packages/ng-primitives/select/**/*.html"
-        ]
-      }
+      "outputs": ["{options.outputFile}"]
     }
   }
 }
